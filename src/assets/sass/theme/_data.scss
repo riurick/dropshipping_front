@@ -1,0 +1,60 @@
+.ui-table .ui-table-thead>tr>th, .ui-table .ui-table-tbody>tr>td, .ui-table .ui-table-tfoot>tr>td {
+   // word-break: break-all;
+   word-wrap: break-word;
+}
+
+.ui-table table { 
+    width: 100% !important;
+  }
+
+
+
+.col1{
+    width:220px;
+}
+.col2{
+    width:160px;
+}
+.col3{
+    width:100px;
+}
+.col6{
+    width:150px;
+}
+.col7{
+    width:170px;
+}
+.col8{
+    width:350px;
+}
+
+.col9{
+    width:350px;
+}
+
+.col11{
+    width:110px;
+}
+
+.col12{
+    width:130px;
+}
+.col14{
+    width:80px;
+}
+
+.ui-widget-header a {
+    color: #1468AE;
+
+    &:hover{
+        color: #1B4673;
+        text-decoration: underline;
+    }
+    
+}
+
+@media (max-width: 640px){
+    .col14{
+        width:100%;
+    }
+}

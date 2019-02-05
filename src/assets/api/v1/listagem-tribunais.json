@@ -1,0 +1,20 @@
+[
+    {
+        "nomeTribunal": "Superior Tribunal Prototipal",
+        "siglaTribunal": "STP",
+        "orgaoJulgador": "11. Turma",
+        "nomeMagistrado": "João Pedro"
+    },
+    {
+        "nomeTribunal": "Superior Tribunal de Justiça",
+        "siglaTribunal": "STJ",
+        "orgaoJulgador": "5. Turma",
+        "nomeMagistrado": "Bruna Silva"
+    },
+    {
+        "nomeTribunal": "Teste",
+        "siglaTribunal": "TETE",
+        "orgaoJulgador": "000",
+        "nomeMagistrado": "Fulano"
+    }
+]

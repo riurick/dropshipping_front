@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+ viewBox="0 0 504.123 504.123" style="enable-background:new 0 0 504.123 504.123;" xml:space="preserve" width="512px" height="512px" 
+ class="">
+ <filter id="a" x="-16.5%" y="-10.5%" width="135%" height="135%">
+      <feOffset result="offOut" in="SourceAlpha" dx="1" dy="1" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+    </filter>
+ 
+ <g>
+ 	<circle style="fill:#00B1EB"  cx="254" cy="254" r="225"  stroke="white" stroke-width="20px" filter="url(#a)" data-original="#FFD05B" class="" data-old_color="#F3F3F2"/>
+	 <rect x="237.883" y="136.665" style="fill:#FDFDFD" width="28.357" height="248.123" data-original="#E6E4E5" class="" data-old_color="#FCFCFC"/>
+<g>
+	<rect x="192.197" y="361.157" style="fill:#FDF9F9" width="119.335" height="26.388" data-original="#324A5E" class="" data-old_color="#FBF6F6"/>
+	<polygon style="fill:#FDF9F9" points="120.517,129.969 64.591,269.785 71.286,272.935 116.578,159.902 116.578,271.36    124.455,271.36 124.455,159.902 169.354,272.935 176.443,269.785  " data-original="#324A5E" class="" data-old_color="#FBF6F6"/>
+</g>
+	<path style="fill:#F8F8F8" d="M64.591,271.754c0,31.508,25.206,56.714,55.926,56.714s55.926-25.6,55.926-56.714v-1.969H64.591  V271.754z" data-original="#F1543F" class="" data-old_color="#F8F7F5"/>
+	<polygon style="fill:#FDF9F9" points="383.606,129.969 439.532,269.785 432.837,272.935 387.545,159.902 387.545,271.36   379.668,271.36 379.668,159.902 334.769,272.935 327.68,269.785 " data-original="#324A5E" class="" data-old_color="#FBF6F6"/>
+	<path style="fill:#F8F8F8" d="M439.532,271.754c0,31.508-25.206,56.714-55.926,56.714s-55.926-25.6-55.926-56.714v-1.969h111.852  V271.754z" data-original="#F1543F" class="" data-old_color="#F8F7F5"/>
+	<rect x="169.748" y="383.212" style="fill:#FCFCFC" width="164.628" height="26.388" data-original="#2B3B4E" class="active-path" data-old_color="#FCFBFB"/>
+	<path style="fill:#F2F2F2" d="M376.517,122.092c-18.117-1.969-93.342-49.625-124.455-14.966  c-31.114-35.052-106.338,12.997-124.455,14.572c-18.117,1.969-27.963-14.572-27.963-14.572l10.634,29.538h141.785H394.24  l10.634-29.538C404.874,107.126,395.028,123.668,376.517,122.092z" data-original="#EFEFEF" class="" data-old_color="#F0F0F0"/>
+</g>
+</svg>

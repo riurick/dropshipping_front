@@ -1,0 +1,30 @@
+<header>
+    <div class="link-rapido">
+        <div class="container hidden-sm-down">
+            <nav class="nav-esquerda">
+                <a href="https://somoscooperativismo.coop.br/">              
+                      SISTEMA OCB - NACIONAL
+                </a>
+            </nav>
+            
+        </div>
+    </div>
+    <div id="topBar" class="layout-topbar " appHideIfUnauthorized='CONSULTAR_JURIS'>
+      
+        <a [routerLink]="['/']">
+             <img alt="logo" src="../../../assets/images/logojurisocb-white2.png" class="logo"/>
+        </a>
+
+        <a href="#" class="menu-btn" (click)="app.onMenuButtonClick($event)">
+                <em class="pi pi-chevron-right"></em>
+            </a>
+        <a>
+            <button (click)="logout()" pButton type="button" label="Sair" iconPos="right" icon="pi pi-power-off"
+                class="mobile-topbar-menu-btn"></button>
+        </a>
+        <a>
+            <button (click)="logout()" pButton type="button" label="Sair" iconPos="right" icon="pi pi-arrow-right" class="topbar-button"></button>
+        </a>
+        
+    </div>
+</header>

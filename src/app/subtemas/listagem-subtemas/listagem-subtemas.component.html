@@ -1,0 +1,83 @@
+<div class="card">
+<div class="ui-g-12">
+<p-card title="Sub-Tema"  >
+<p-table #dt [columns]="cols" [value]="responsePage ? responsePage.data.content : []" [paginator]="true" [rows]="nrLinhasTabela" [lazy]="true" (onLazyLoad)="loadLazy($event)"
+[totalRecords]="responsePage ? responsePage.data.totalElements: 0" sortField="nome" sortMode="single" resizableColumns="true" [responsive]="true" 
+[tableStyle]="{'table-layout':'auto'}">
+<ng-template pTemplate="caption">           
+  <div class="ui-helper-clearfix" >
+      <button type="button" pButton  label="Novo" title="Novo" icon="pi pi-plus" style="float:right" [routerLink]="['/novosubtema']" routerLinkActive="active" ></button>
+  </div>
+</ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field" ariaLabel="Ative para ordenar" 
+          ariaLabelDesc="Ative para ordenar em ordem descendente" 
+          ariaLabelAsc="Ative para ordenar em ordem ascendente">
+        </p-sortIcon>
+      </th>
+      <th title="Editar" style="width: 6%;">Editar</th>
+      <th title="Excluir" style="width: 7%;">Excluir</th>
+    </tr>
+  <tr>
+    <th *ngFor="let col of cols" [ngSwitch]="col.field">
+     
+      <input  class="ui-fluid" style="width: 100%;" pInputText *ngSwitchCase="'tema.nome'" pInputText [(ngModel)]="filtroNomeTema" type="text" 
+          placeholder="Nome do Tema" (input)="onChangeFilter()">
+      <input  class="ui-fluid" style="width: 100%;" pInputText *ngSwitchCase="'nome'" pInputText [(ngModel)]="filtroNomeSubTema" type="text"
+          placeholder="Nome do Sub-Tema" (input)="onChangeFilter()">
+      <p-checkbox *ngSwitchCase="'situacao'" value="situacao" [(ngModel)]="filtroAtivo" binary="true" (onChange)="dt.reset()"></p-checkbox>
+    </th>
+    <th></th>
+    <th></th>
+  </tr>        
+  </ng-template>
+  <ng-template pTemplate="body" let-obj>
+    <tr>
+      
+      <td>
+        <span class="ui-column-title">Tema</span>
+        {{obj.tema.nome}}
+        </td>      
+      <td>
+          <span class="ui-column-title">Sub-Tema</span>
+        {{obj.nome}}
+      </td>
+      <td>
+          <span class="ui-column-title">Situação</span>
+          {{obj.situacao ? 'Ativo' : 'Inativo'}}
+        </td>
+        <td>
+            <span class="ui-column-title">Editar</span>
+            <div style="text-align:center">
+                <p-button icon="pi pi-fw pi-pencil" title="Editar" class="table-button" styleClass="ui-button-info" [routerLink]="['/editarsubtema', obj.id]" routerLinkActive="active"></p-button>
+            </div>
+
+        </td>
+        <td>
+            <span class="ui-column-title">Excluir</span>
+            <div style="text-align:center">
+                    <p-button icon="pi pi-fw pi-trash"  title="Excluir" class="table-button"  styleClass="ui-button-danger" (onClick)="excluir(obj.id)"></p-button>        
+                </div>
+
+          </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="10" style="text-align: center;">
+        Nenhum subtema encontrado.
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary" let-rowData>
+    <div style="text-align:left">
+        <p-button [disabled] = "!botaoExportar" icon="pi pi-fw pi-download" title="Exportar tabela" label="Exportar Tabela" (onClick)="exportarTabela()"></p-button>
+    </div>
+  </ng-template> 
+</p-table>
+</p-card>
+</div>
+</div>

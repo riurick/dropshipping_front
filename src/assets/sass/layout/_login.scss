@@ -1,0 +1,150 @@
+.login-body {
+    background-image: url("../../images/img-servicos.jpg");
+    height: 100%;
+    width: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .login-panel {
+        overflow: hidden;
+        width: 800px;
+        height: 550px;
+        background-color: $loginbgPanelColor;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -400px;
+        margin-top: -300px;
+        padding: 0;
+        @include border-radius(9px);
+        @include multi-shadow(0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 6px 10px 0 rgba(0, 0, 0, 0.14));
+
+        .login-panel-header {
+            text-align: center;
+            padding: 8px 25px;
+            @include border-radius(4px);
+            
+            h1 {
+                font-size: 32px;
+                margin-top: 8%;
+                margin-bottom: 5px;
+                text-align: center;
+               color: $loginTextColor;
+            }
+
+            img {
+                vertical-align: middle;
+                width: 250px;
+                margin-top: 1em;;
+            }
+        }
+
+        .login-panel-content {
+            @include border-radius(4px);
+            padding: 0px 100px;
+
+            h1 {
+                font-size: 16px;
+                margin-top: 0;
+                margin-bottom: 16px;
+                text-align: center;
+               color: $loginTextColor;
+            }
+
+            .ui-g-12, .ui-g-6 {
+                padding: 1em;
+
+                &:last-child {
+                    text-align: center;
+
+                    a {
+                        color: $accentColor;
+                    }
+                }
+            }
+
+            .password-reset {
+                text-align: right;
+
+                a {
+                    color: $textSecondaryColor;
+                }
+            }
+
+            .ui-chkbox-label {
+                margin: 0 0 0 8px;
+                vertical-align: middle;
+            }
+
+           .ui-inputtext {
+
+                height: 40px;
+                border-radius: 5px;
+            }
+
+            .ui-button {
+
+                height: 40px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 640px) {
+    .login-body {
+        .login-panel {
+            left: 0;
+            margin-left: 0;
+            width: 100%;
+            
+            .login-panel-content {
+                padding: 50px 25px;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px){
+    .login-body .login-panel .login-panel-content {
+    padding: 0;
+    }
+}
+
+@media(max-width: 320px){
+    .login-body{
+        .login-panel {
+            height: 90%;
+
+            .login-panel-header {
+                padding: 40px 0px 0px;
+
+                h1{
+                    margin-top: 15%;
+                }
+            }
+
+            .login-panel-content{
+                .ui-inputtext {
+                    height: 30px;
+                    border-radius: 5px;
+                }
+
+                .ui-button {
+                    height: 30px;
+                }
+                .ui-g-12, .login-body .login-panel .login-panel-content .ui-g-6 {
+                    padding: 0.9em;
+                }
+            } 
+        }
+
+    }
+}
+
+body .md-inputfield input:focus ~ label, body .md-inputfield input.ui-state-filled ~ label, body .md-inputfield .ui-inputwrapper-focus ~ label, body .md-inputfield .ui-inputwrapper-filled ~ label{
+    color: $loginTextColor !important;
+
+}

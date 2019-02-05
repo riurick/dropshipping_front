@@ -1,0 +1,135 @@
+.layout-wrapper {
+    .layout-menubar {
+        padding: 0em 0em;
+         position: fixed;
+        z-index: 9999;
+        right: 10em;
+        transition: all 0.3s;
+        margin-top: 3.5em;
+        display: block;
+
+        #menuBar{
+           
+            .ui-menubar {
+                padding: .25em;
+                background: transparent;
+                border: none;
+                color: #FFFFFF;
+            }
+
+            .ui-menuitem .ui-menuitem-link {
+                color: #FFFFFF;
+                text-transform: uppercase;
+                height: 58px;
+                border-bottom: 5px solid transparent;
+                @include transition(border-color $transitionDuration);
+            }
+
+            .ui-menubar .ui-menubar-root-list>.ui-menuitem>.ui-menuitem-link {
+                padding: 12px;
+            }
+
+            .ui-state-active {
+                
+                background-color: transparent;
+                color: #ffffff;
+            }
+
+            .ui-corner-all {
+                border-radius: 1px !important; 
+            }
+
+            .ui-menu .ui-menuitem > .ui-menuitem-link:hover,
+            .ui-menubar .ui-menuitem > .ui-menuitem-link:hover,
+            .ui-tieredmenu .ui-menuitem > .ui-menuitem-link:hover,
+            .ui-slidemenu .ui-menuitem > .ui-menuitem-link:hover,
+            .ui-contextmenu .ui-menuitem > .ui-menuitem-link:hover,
+            .ui-megamenu .ui-menuitem > .ui-menuitem-link:hover {
+                background-color: transparent;
+                border-color: #ffffff !important;
+                color: #ffffff;
+                @include transition(left $sidebarAnimationDuration);
+            }
+
+            .ui-menu .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+            .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+            .ui-tieredmenu .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+            .ui-slidemenu .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+            .ui-contextmenu .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+            .ui-megamenu .ui-menuitem.ui-menuitem-active > .ui-menuitem-link {
+                background-color: transparent;
+                border-color: #ffffff !important;
+                color: #ffffff;
+                transition: all 0.3s;
+            }
+
+           
+            .ui-submenu {
+
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+
+                .ui-corner-all {
+                    border-radius: 6px !important; 
+                }
+
+                .ui-submenu-list {
+                    border: none;
+                    background: #0c5898;
+                    border-radius: 6px;
+                    transition: all 0.3s;
+    
+                    .ui-menuitem .ui-menuitem-link {
+                        color: #FFFFFF;
+                        text-transform: uppercase;
+                        padding: 7px 7px 7px 7px;
+                        border-bottom: none;
+                        height: 40px;
+                        padding-top: 10px;
+                     
+                    }
+
+                    .ui-menuitem > .ui-menuitem-link:hover{
+                        background-color: $sidebarBgHoverColor;
+                        opacity: .9;
+                    }
+                  
+                }
+            } 
+
+            .ui-menubar .ui-menubar-root-list>.ui-menuitem.ui-menuitem-active >.ui-menuitem-link>.ui-submenu-icon {
+                transition: all 0.3s;
+                transform: rotate(-180deg);
+                
+            }
+
+            .ui-menubar .ui-menubar-root-list>.ui-menuitem >.ui-menuitem-link>.ui-submenu-icon {
+                transition: all 0.3s;
+                
+            }
+
+
+
+        }
+
+
+    }
+}
+
+@media (max-width: 1024px) {
+    .layout-wrapper {
+        .layout-menubar { display: none;}
+    }
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1060px) {
+    .layout-wrapper {
+        .layout-menubar { 
+            #menuBar{
+                .ui-menubar .ui-menubar-root-list>.ui-menuitem>.ui-menuitem-link {
+                    padding: 8px;
+                }
+            }
+        }
+    } 
+    }

@@ -1,0 +1,68 @@
+/* common */
+$textColor:#1b1b1b;
+$textSecondaryColor:#888888;
+$fontSize:14px;
+$transitionDuration:.3s;
+$titleTextColor: #1468AE;
+
+/* login */
+$loginbgPanelColor: rgba(6, 38, 72, 0.7);
+$loginTextColor: #ffffff;
+
+/* topbar */
+$topbarBgColor:#e4e4e4;
+$topbarDarkBgColor: #1B4673;
+$topbarAccentBgColor: #0c5898;
+$topbarBorderColor:#F5F5F5;
+$topbarButtonBgColor:#F5F5F5;
+$topbarButtonBorderColor:#888888;
+$topbarButtonTextColor:#1B4673;
+$topbarButtonHoverBgColor:rgba(245, 245, 245, 0.712);
+$topbarButtonHoverTextColor:#1B4673;
+$topbarButtonHoverBorderColor:#888888;
+$topbarIconColor:#E8EAF6; 
+$topbarTextColor: #E8EAF6;
+$topbarSubmenuHoverBgColor:#f1f2f7;
+
+/* sidebar */
+$sidebarBgColor:  linear-gradient(to right, #1B4673, #0c5898);
+$sidebarBgDarkColor: #2a3238;
+$sidebarBgHoverColor:  #0e233a;
+$sidebarBorderColor:#1B4673;
+$sidebarAnimationDuration:.3s;
+$menuitemActiveTextColor: #ffffff;
+$menuitemActiveBgColor:#0e233a;
+$submenuBgColor:rgba(255,255,255,0.2);
+
+/* Accent */
+$accentColor:#7CB342;
+$accentLightColor:#9CCC65;
+$accentTextColor:#ffffff;
+
+
+/* mask */
+$layoutMaskBgColor:#424242;
+
+/* footer */
+$footerBgColor:#e4e4e4;
+$footerBorderColor:#dbdbdb;
+$footerTextColor: rgba(75, 75, 75, 0.7);
+
+/* Primary */
+$primaryColor:#1B4673;
+$primaryDarkColor:#1B4673;
+$primaryLightColor:#90A4AE;
+$primaryLightestColor:#F5F5F5;
+$primaryTextColor:#ffffff;
+
+$borderRadius:3px;
+
+//breandcrumb
+$hoverBgColor:#e8e8e8;
+
+/*   landing   */
+$bodyBgColor:#F5F5F5;
+$landingBgDarkColor: #0c5898;
+$landingBgAccentColor:  rgb(66, 162, 179);
+$landingFeaturesBgDarkColor: #c9c8c8;
+$landingFeaturesBgAccentColor: #ecedee;

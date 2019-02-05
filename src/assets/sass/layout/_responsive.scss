@@ -1,0 +1,254 @@
+@media (min-width: 1025px) {
+    .layout-wrapper {
+        &.layout-sidebar-active {
+
+            
+            .layout-sidebar {
+                left: -250px;
+            }
+
+        }
+
+    }
+}
+
+@media (max-width: 1024px) {
+    .layout-wrapper {
+       
+        
+        
+        &.layout-sidebar-active {
+
+            .layout-wrapper .layout-main .layout-breadcrumb {
+                padding-top: 30px;
+            }
+
+            .layout-sidebar {
+                left: 0px;
+            }
+
+            
+
+            .layout-main-mask {
+                z-index: 998;
+                position: fixed;
+                left: 0;
+                top: 64px;
+                background-color: $layoutMaskBgColor;
+                opacity: .5;
+                $opacity-ie: .5 * 100;
+                opacity:.5;
+                display: block;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+        }
+
+        .layout-main {    
+            .layout-content {
+
+                .mobilePosition{
+                    position: absolute;
+                    top: 56em;
+                }
+
+                #RefinarBusca{
+                    .card {
+                        margin-top: -0em;
+                        position: relative;
+                    }
+
+                }
+
+                #RefinarBuscaHeader {
+                       
+                    .ui-inputtext {
+                       
+                        width: 90%;
+                    }
+                }
+                .form-date{
+                    text-align: left;
+                   
+                }              
+                
+            }
+        }
+       
+    }
+
+    body {
+        &.hidden-overflow {
+            overflow: hidden;
+        } 
+    }
+
+    label.form-label{
+        float: inherit;
+    }
+}
+
+
+@media (max-width: 824px) {
+    .layout-wrapper {
+        .layout-main {    
+            .layout-content {
+                #RefinarBuscaHeader {
+                    
+                    .ui-inputtext {
+                    
+                        width: 80%;
+                    }
+                }
+                .form-date{
+                    text-align: left;
+                
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+
+   
+
+    body .ui-widget-header .ui-button, body .ui-widget-content .ui-button, body .ui-button{
+        float: none;
+    }
+
+    .col1{
+        width: 100% !important;  /*-- HERE --*/
+    }
+
+    
+    .tabelaJuris{
+        .ui-table table  {
+            text-align: left !important;
+            display: block !important;
+            border: 0 none !important;
+            width: 100% !important;  /*-- HERE --*/
+            -webkit-box-sizing: border-box !important;
+            -moz-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+            float: left !important;    
+            clear: left !important;
+        }
+    }
+    
+    .layout-wrapper {
+
+        .layout-main{
+            .layout-content {
+
+                .linkResultadoPesquisa{
+                    text-decoration: underline;
+                    float: left;
+                }
+
+               .small-padding{
+                padding: none;
+
+                }
+    
+
+                .mobilePosition{
+                    position: absolute;
+                    top: 62em;
+                }
+
+                #RefinarBuscaHeader {
+
+                    > div {
+                        padding: 0;
+
+                        .ui-inputtext {
+                    
+                            width: 100%;
+                        }
+    
+                        .botaoMobile{
+                            display: inline-block;
+                            width: 100%;
+                            padding: 0.5em;
+                            margin-top: 1em;
+                        }
+    
+                        .botaoDesktop{
+                            display: none;
+                            
+                        }
+
+                        .linkPesquisa {
+                            padding: 0em;
+                        }
+                    }
+                    
+                   
+                }
+
+                
+            #RefinarBusca{
+                .card {
+                    margin-top: -0em;
+                    position: relative;
+
+                }
+
+                
+            }
+
+           
+                .form-date{
+                    text-align: left;
+                
+                }
+
+                
+              
+            
+            }
+
+            .layout-footer{
+                .logo-footer{
+                    display: none;
+                }
+        
+                .logo-footer-left{
+                    display: none;
+                }
+            }
+
+        }  
+
+    }
+    
+        
+}
+
+@media screen and (max-width: 320px){
+    .layout-wrapper .layout-topbar .logo {
+        width: 120px;
+    }
+    
+}
+
+@media screen and (max-width: 450px){
+    .layout-wrapper {     
+
+        &.layout-sidebar-active {
+            .layout-sidebar {
+                left: 0px;
+                top: 120px !important;
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+

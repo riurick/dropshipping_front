@@ -1,0 +1,24 @@
+<div class="layout-wrapper" [ngClass]="{'layout-sidebar-active': sidebarActive}">
+  <app-menu></app-menu>
+  <app-topbar></app-topbar>
+  <div class="layout-main">
+    <div class="layout-content">
+      <div class="templates">
+        <div class="why-templates">
+         
+            <app-breadcrumb ></app-breadcrumb>
+            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+
+            <router-outlet></router-outlet>
+            <p-growl></p-growl>
+            <p-confirmDialog header="Confirmação" acceptLabel="Sim" rejectLabel="Não" icon="pi pi-exclamation-triangle"
+              width="425"></p-confirmDialog>
+
+         
+          
+        </div>
+      </div>
+    </div>
+    <app-rodape></app-rodape>
+  </div>
+</div>

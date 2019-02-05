@@ -1,0 +1,47 @@
+<div class="layout-breadcrumb">
+    <ul>
+        <li>
+
+            <ng-template ngFor let-item let-last="last" [ngForOf]="items">
+                <li>
+                    <!--<a [routerLink]="item.routerLink" *ngIf="item.routerLink">{{item.label}}</a> -->
+                    <ng-container *ngIf="!item.routerLink"></ng-container>
+                </li>
+        
+            </ng-template>
+        </li>
+    </ul>
+
+    
+    <ng-container>
+    <div class="layout-topbar-menu-wrapper" style="float:right;  display:inline-block; vertical-align: middle; ">
+            <ul class="topbar-menu fadeInDown" [ngClass]="{'topbar-menu-active': app.topbarMenuActive}" (click)="app.onTopbarMenuClick($event)">
+                <li #settings [ngClass]="{'active-topmenuitem':app.activeTopbarItem === settings}" (click)="app.onTopbarRootItemClick($event, settings)">
+                    <a href="#" class="menu-btn">
+                        <em class="pi pi-fw pi-cog"></em>
+                        <span class="topbar-item-name">Configurações</span>
+                    </a>
+                    <ul class="fadeInDown">
+                        <li role="menuitem">
+                            <a href="#" (click)="account()" style="text-align:left">
+                                <em class="pi pi-fw pi-user"></em>
+                                Conta
+                            </a>
+                        </li>
+                        <li role="menuitem" s>
+                            <a href="#" style="text-align:left">
+                                <em class="pi pi-fw pi-question"></em>
+                                Ajuda
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div style="float: right;">
+                <span class="usuario" *ngIf="getUser()"> Usuário: {{getUser().username}}</span>
+        </div>
+
+    </ng-container>
+
+</div>

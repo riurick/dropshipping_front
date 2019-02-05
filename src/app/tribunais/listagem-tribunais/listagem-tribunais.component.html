@@ -1,0 +1,86 @@
+<div class="card">
+<div class="ui-g-12">
+<p-card title="Tribunal">
+  <div>
+    <p-table #dt [columns]="cols" [value]="responsePageTribunal ? responsePageTribunal.data.content : []" [paginator]="true"
+      [rows]="nrLinhasTabela" [lazy]="true" (onLazyLoad)="loadLazy($event)" [totalRecords]="responsePageTribunal ? responsePageTribunal.data.totalElements: 0"
+      sortField="nome" sortMode="single" [tableStyle]="{'table-layout':'auto'}" [responsive]="true">
+      <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix ">
+
+          <button type="button" pButton label="Novo" class="ui-button-info" title="Novo" icon="pi pi-plus" style="float:right" [routerLink]="['/novotribunal']"
+            routerLinkActive="active"></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+
+          <th *ngFor="let col of cols" [pSortableColumn]="col.field !== 'ativo' ? col.field : null" title="{{col.header}}">
+            {{col.header}}
+            <p-sortIcon *ngIf="col.field !== 'ativo'" [field]="col.field" ariaLabel="Ative para ordenar" ariaLabelDesc="Ative para ordenar em ordem descendente"
+              ariaLabelAsc="Ative para ordenar em ordem ascendente">
+            </p-sortIcon>
+          </th>
+          <th title="Editar" style="width: 6%;">Editar</th>
+          <th title="Excluir" style="width: 7%;">Excluir</th>
+        </tr>
+        <tr>
+          <!-- Vazio pois não há filtro para operações -->
+          <th *ngFor="let col of cols" [ngSwitch]="col.field">
+            <input class="ui-fluid" pInputText style="width: 100%;" *ngSwitchCase="'nome'" placeholder="Nome do Tribunal" pInputText [(ngModel)]="filtroNome"
+              type="text" (input)="onChangeFilter()">
+            <input class="ui-fluid" pInputText style="width: 100%;" *ngSwitchCase="'sigla'" placeholder="Sigla do Tribunal" pInputText [(ngModel)]="filtroSigla"
+              type="text" (input)="onChangeFilter()">
+              <p-checkbox *ngSwitchCase="'ativo'" value="ativo" [(ngModel)]="filtroAtivo" binary="true" (onChange)="dt.reset()"></p-checkbox>                                          
+          </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-trib>
+        <tr>
+          <td>
+            <span class="ui-column-title">Sigla</span>
+            {{trib.sigla}}
+          </td>
+          <td>
+            <span class="ui-column-title">Tribunal</span>
+            {{trib.nome}}
+          </td>
+          <td>
+              <span class="ui-column-title">Ativo</span>
+              {{trib.ativo ? 'Sim' : 'Não'}}
+          </td>          
+          <td>
+            <span class="ui-column-title">Editar</span>
+            <div style="text-align:center">
+              <p-button icon="pi pi-fw pi-pencil" class="table-button" title="editar" styleClass="ui-button-info" [routerLink]="['/editartribunal', trib.id]"
+                routerLinkActive="active"></p-button>
+            </div>
+
+          </td>
+          <td>
+            <span class="ui-column-title">Excluir</span>
+            <div style="text-align:center">
+              <p-button icon="pi pi-fw pi-trash" class="table-button" title="excluir" styleClass="ui-button-danger" (onClick)="excluirTribunal(trib.id)"></p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="10" style="text-align: center;">
+            Nenhum tribunal encontrado.
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+          <p-button [disabled] = "!botaoExportar" icon="pi pi-fw pi-download" label="Exportar Tabela" title="Exportar tabela" (onClick)="exportarTabela()"></p-button>
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+</p-card>
+</div>
+</div>

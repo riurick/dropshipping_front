@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512.004 512.004" 
+style="enable-background:new 0 0 250.004 250.004;" xml:space="preserve" width="250px" height="250px" class="">
+  <filter id="a" x="-16.5%" y="-10.5%" width="135%" height="135%">
+      <feOffset result="offOut" in="SourceAlpha" dx="1" dy="1" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+    </filter>
+<g>
+	<circle style="fill:#F29C21" cx="254" cy="254" r="225" stroke="white" stroke-width="20px" data-original="#54B8AC" class="active-path" data-old_color="#00b1eb" filter="url(#a)"/>
+	<path style="fill:#FFFFFF" d="M271.369,155.047h-54.446c-20.914,0-37.915,16.754-38.313,37.573  c-0.41,21.483,17.583,39.067,39.07,39.067v163.427h76.639V177.999C294.32,165.323,284.045,155.047,271.369,155.047z" data-original="#FFFFFF" class=""/>
+<g>
+	<path style="fill:#FFFFFF" d="M320.086,356.795c21.162,0,38.32,17.156,38.32,38.321c0,21.164-17.157,38.32-38.32,38.32H191.914   c-21.162,0-38.32-17.156-38.32-38.32c0-21.164,17.157-38.321,38.32-38.321H320.086z" data-original="#FFFFFF" class=""/>
+	<circle style="fill:#FFFFFF" cx="256.002" cy="82.772" r="38.32" data-original="#FFFFFF" class=""/>
+</g></g> </svg>
