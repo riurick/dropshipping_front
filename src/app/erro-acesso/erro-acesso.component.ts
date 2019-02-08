@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./erro-acesso.component.css']
 })
 export class ErroAcessoComponent implements OnInit {
+
   constructor() { }
+
   ngOnInit() {
   }
+
 }

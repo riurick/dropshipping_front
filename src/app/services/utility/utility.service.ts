@@ -1,12 +1,12 @@
-import { OrgaoJulgador } from './../../entities/OrgaoJulgador';
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UtilityService {
 
-   public retirarFormatacao(numFormatado: string) {
-        return numFormatado ? (numFormatado.replace(/\./g, '')).replace('-', '') : numFormatado;
+   public retirarFormatacao(numFormatado: String) {
+        return numFormatado ? (numFormatado.replace(/\./g, '')).replace('-', '').replace('(', '')
+        .replace(')', '').replace(' ', '') : numFormatado;
     }
 
    public convertDateToString(data: Date) {

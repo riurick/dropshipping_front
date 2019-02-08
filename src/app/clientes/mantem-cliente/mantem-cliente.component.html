@@ -1,0 +1,125 @@
+<div class="card">
+  <div class="ui-fluid">
+      <p-growl [(value)]="msgs"></p-growl>
+      <p-card class="cad_cadastro ui-g-12" title="Cliente">
+          <hr>
+          <form class="ui-g" (ngSubmit)="salvar()" #clienteForm="ngForm">
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="nome">Nome:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-5 ">
+                      <input id="nome"  required type="text" size="30" pInputText [(ngModel)]="cliente.nome" name="nome" #nome="ngModel"  maxlength="50">
+                      <p-message [hidden]="nome.valid || nome.pristine" severity="error" text="Nome deve ser preenchido"></p-message>
+                  </div>
+              </div>
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="email">E-mail:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-5 ">
+                      <input id="email"  required type="text" size="30" pInputText [(ngModel)]="cliente.email" name="email" #nome="ngModel"  maxlength="50">
+                      
+                  </div>
+              </div>
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="cpf">CPF:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-2">
+                      <p-inputMask [readonly]="visualizar" id="cpf" name="cpf" required size="14" [(ngModel)]="cliente.cpf"
+                          mask="999.999.999-99"></p-inputMask>
+                  </div>
+
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="form-label" for="telefone">Telefone:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-2">
+                      <p-inputMask [readonly]="visualizar" id="telefone" name="telefone" size="14" [(ngModel)]="cliente.telefone"
+                          mask="(99)99999-9999"></p-inputMask>
+                  </div>
+              </div>
+
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="senha">Senha:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-2">
+                      <input id="senha"  required type="password" size="30" pInputText [(ngModel)]="cliente.senha" name="senha" #nome="ngModel"  maxlength="8">
+                  </div>
+
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="confirmaSenha">Confirmar senha:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-2">
+                      <input id="confirmaSenha" required validateEqual="cliente.senha" type="password" pInputText [(ngModel)]="confirmaSenha" name="confirmaSenha"/>
+                  </div>
+              </div>
+
+              <div  class="ui-g-12 ui-fluid" >
+                  <p-fieldset legend="Endereço" [toggleable]="true">
+                      <div  class="ui-g-10 ui-fluid" >
+                        <div class="ui-g-12 ui-md-3 ui-lg-2">
+                            <label  class="required form-label" for="cep">CEP:</label>
+                        </div>
+                        <div class="ui-g-12 ui-md-9 ui-lg-2">
+                            <p-inputMask [readonly]="visualizar" id="cep" name="cep" required size="9" [(ngModel)]="cliente.endereco.cep"
+                                mask="99999-999"></p-inputMask>
+                        </div>
+                      </div>
+                      <div  class="ui-g-10 ui-fluid" >
+                          <div class="ui-g-12 ui-md-3 ui-lg-2">
+                              <label  class="form-label" for="logradouro">Logradouro:</label>
+                          </div>
+                          <div class="ui-g-12 ui-md-9 ui-lg-5">
+                              <input id="logradouro"  type="text" size="64" pInputText [(ngModel)]="cliente.endereco.logradouro" name="logradouro"
+                               #nome="ngModel"  maxlength="64">
+                          </div>
+                      </div>
+                      <div  class="ui-g-10 ui-fluid" >
+                          <div class="ui-g-12 ui-md-3 ui-lg-2">
+                              <label  class="form-label" for="complemento">Complemento:</label>
+                          </div>
+                          <div class="ui-g-12 ui-md-9 ui-lg-5">
+                              <input id="complemento"  type="text" size="64" pInputText [(ngModel)]="cliente.endereco.complemento" name="complemento"
+                               #nome="ngModel"  maxlength="64">
+                          </div>
+                      </div>
+                      <div  class="ui-g-10 ui-fluid" >
+                          <div class="ui-g-12 ui-md-3 ui-lg-2">
+                              <label  class="form-label" for="bairro">Bairro:</label>
+                          </div>
+                          <div class="ui-g-12 ui-md-9 ui-lg-5">
+                              <input id="bairro"  type="text" size="64" pInputText [(ngModel)]="cliente.endereco.bairro" name="bairro"
+                               #nome="ngModel"  maxlength="64">
+                          </div>
+                      </div>
+                      <div  class="ui-g-10 ui-fluid" >
+                          <div class="ui-g-12 ui-md-3 ui-lg-2">
+                              <label  class="form-label" for="uf">UF:</label>
+                          </div>
+                          <div class="ui-g-12 ui-md-9 ui-lg-2">
+                              <p-dropdown [options]="ufs" [(ngModel)]="cliente.endereco.uf" [ngModelOptions]="{standalone: true}"></p-dropdown>
+                          </div>
+                          <div class="ui-g-12 ui-md-3 ui-lg-2">
+                              <label  class="form-label" for="municipio">Município:</label>
+                          </div>
+                          <div class="ui-g-12 ui-md-9 ui-lg-3">
+                              <input id="municipio"  type="text" size="32" pInputText [(ngModel)]="cliente.endereco.municipio" name="municipio"
+                               #nome="ngModel"  maxlength="64">
+                          </div>
+                      </div>
+                  </p-fieldset>
+              </div>
+              <div class="ui-fluid">
+                  <div class="ui-g-6 ui-md-6 ui-lg-10">
+                      <p-button label="Voltar" style="float: right;" [routerLink]="['/']" routerLinkActive="active"></p-button>
+                  </div>
+                  <div *ngIf="this.route.snapshot.url[0] && this.route.snapshot.url[0].path != 'visualizar'" class="ui-g-6 ui-md-6 ui-lg-2">
+                      <p-button type="submit" [disabled]="clienteForm.form.invalid" label="Salvar" style="float: left;"></p-button>
+                  </div>
+              </div>
+          </form>
+      </p-card>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { AppComponent } from 'src/app/app.component';
 import { HttpParams } from '@angular/common/http';
-import { Ramo } from './../../entities/Ramo';
 import {Component, OnInit} from '@angular/core';
 import { BreadcrumbService} from '../../services/breadcrumb/breadcrumb.service';
 import { Router, NavigationExtras } from '../../../../node_modules/@angular/router';
@@ -13,9 +12,7 @@ import { Router, NavigationExtras } from '../../../../node_modules/@angular/rout
 })
 export class InicioComponent implements OnInit {
 
-  optionsDropdownRamo: Ramo[];
   descricaoJuris: string;
-  ramoSelecionado: Ramo;
   descricaoPesquisaPronta: string;
   temPermissao: boolean;
 
@@ -28,23 +25,6 @@ export class InicioComponent implements OnInit {
    }
 
   ngOnInit() {
-  }
-
-  filtrar() {
-    const ramo = this.ramoSelecionado ? this.ramoSelecionado.id : '' ;
-    const desc = this.descricaoJuris ? this.descricaoJuris : '';
-
-    this.router.navigate(['jurisprudencias/externoFiltroInicial',
-     {ramo: ramo,
-      descricao: desc,
-      filtroPaginaInicial: true}]);
-  }
-
-  filtrarPesquisaPronta() {
-    const desc = this.descricaoPesquisaPronta ? this.descricaoPesquisaPronta : '';
-
-    this.router.navigate(['compendiosFiltroInicial',
-     {descricao: desc,
-      filtroPaginaInicial: true}]);
+      this.temPermissao = true;
   }
 }

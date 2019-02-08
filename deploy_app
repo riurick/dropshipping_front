@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# =======================MICROSERVICOS - DROPSHIPPING=======================================
+#JURIS-FRONT
+app_name="dropshipping-front"
+git_uri="git@github.com:riurick/dropshipping_front.git"
+
+#=============================================================================================
+
+# VARIAVEIS GERAIS
+git_user=""
+git_password=""
+git_branches=""
+workspace=""
+#=============================================================================================
+
+#1. CLONE/PULL DO REPO GIT
+#cd $workspace/$app_name; git pull
+echo "git clone --single-branch -b $git_branches http://$git_user:$git_password@$git_uri $workspace/$app_name"
+
+#2. COMPILA O CODIGO
+#NPM
+cd $workspace/$app_name; npm install; npm run build 
+
+#3. CRIA A BUILD DO CONTAINER
+oc new-build --binary --name=$app_name -l app=$app_name
+
+#4. INICIA A BUILD COM O WORKDIR DA APP
+oc start-build $app_name --from-dir=$workspace/$app_name --follow
+
+#5. INICIA O CONTAINER
+oc new-app $app_name -l app=$app_name
+
+#6. CRIA O SVC PARA ACESSO AOS PODS
+oc create service clusterip $app_name --tcp=8080:8080
+
+#7.EXPOE O SVC PARA ACESSO EXTERNO
+oc expose svc $app_name

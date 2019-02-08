@@ -6,9 +6,7 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['parallel', 'jasmine', '@angular-devkit/build-angular'],
-    files: [
-      'http://keycloak-hmlg.cloudapps.ocb.org.br/auth/js/keycloak.min.js'
-    ],
+    
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),

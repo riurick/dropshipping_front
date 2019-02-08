@@ -29,7 +29,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { PaginatorModule } from 'primeng/paginator';
 import { PanelModule } from 'primeng/panel';
 import { AutoCompleteModule, DialogModule, FieldsetModule,
-   PickListModule, ProgressSpinnerModule, ChipsModule, TabViewModule } from 'primeng/primeng';
+  MultiSelectModule, PickListModule, ProgressSpinnerModule, ChipsModule, TabViewModule } from 'primeng/primeng';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TableModule } from 'primeng/table';
@@ -41,6 +41,8 @@ import {MenuItem} from 'primeng/api';
 
 // App Imports
 import { AppComponent } from './app.component';
+import { DisableIfUnauthorizedDirective } from './directives/disable-if-unauthorized.directive';
+import { HideIfUnauthorizedDirective } from './directives/hide-if-unauthorized.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { InicioComponent } from './layout/inicio/inicio.component';
 import { AppMenuComponent, AppSubMenuComponent } from './layout/menu/app.menu.component';
@@ -53,18 +55,12 @@ import { CacheService } from './services/cache/cache.service';
 import { ExportarPlanilhaService } from './services/exportar-planilha/exportar-planilha.service';
 import { HTTPListener } from './services/RxJS/HTTPListener.service';
 import { HTTPStatus } from './services/RxJS/HTTPStatus.service';
-import { ListagemSubTemaComponent } from './subtemas/listagem-subtemas/listagem-subtemas.component';
-import { MantemSubTemasComponent } from './subtemas/mantem-subtemas/mantem-subtemas.component';
-import { ListagemTemasComponent } from './temas/listagem-temas/listagem-temas.component';
-import { MantemTemaComponent } from './temas/mantem-tema/mantem-tema.component';
-import { ListagemTipoDeProcessoComponent } from './tipos-de-processos/listagem-tipo-de-processo/listagem-tipo-de-processo.component';
-import { MantemTipoDeProcessoComponent } from './tipos-de-processos/mantem-tipo-de-processo/mantem-tipo-de-processo.component';
-import { ListagemTribunaisComponent } from './tribunais/listagem-tribunais/listagem-tribunais.component';
-import { MantemTribunalComponent } from './tribunais/mantem-tribunal/mantem-tribunal.component';
+import { KeycloakService } from './services/keycloak-service/KeycloakService';
 import { UtilityService} from './services/utility/utility.service';
-import { ListagemUsuariosComponent } from './usuarios/listagem-usuarios/listagem-usuarios.component';
-import { MantemUsuarioComponent } from './usuarios/mantem-usuario/mantem-usuario.component';
 import { ErroAcessoComponent } from './erro-acesso/erro-acesso.component';
+import { HideIfNacionalDirective } from './directives/hide-if-nacional.directive';
+import { MantemClienteComponent } from './clientes/mantem-cliente/mantem-cliente.component';
+import { MantemVendedorComponent } from './vendedor/mantem-vendedor/mantem-vendedor.component';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -73,23 +69,19 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
   declarations: [
     AppComponent,
     InicioComponent,
-    ListagemTribunaisComponent,
-    ListagemTemasComponent,
     AppMenuComponent,
     AppSubMenuComponent,
     AppTopBarComponent,
     AppRodapeComponent,
-    ListagemTipoDeProcessoComponent,
-    ListagemSubTemaComponent,
-    MantemTribunalComponent,
     AppBreadcrumbComponent,
-    MantemTemaComponent,
-    MantemTipoDeProcessoComponent,
-    MantemSubTemasComponent,
     FileUploadComponent,
-    ListagemUsuariosComponent,
-    MantemUsuarioComponent,
+    DisableIfUnauthorizedDirective,
+    HideIfUnauthorizedDirective,
+    HideIfNacionalDirective,
     ErroAcessoComponent,
+
+    MantemClienteComponent,
+    MantemVendedorComponent
   ],
   imports: [
     // Angular Modules
@@ -118,6 +110,7 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     ListboxModule,
     RadioButtonModule,
     FieldsetModule,
+    MultiSelectModule,
     GrowlModule,
     PanelModule,
     CalendarModule,
@@ -140,11 +133,7 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
   ],
   providers: [
     ...RxJS_Services,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: onAppInit,
-      multi: true
-    },
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HTTPListener,
@@ -157,6 +146,7 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     CacheService,
     AuthGuardService,
     UtilityService,
+
     AppMenuComponent,
     AppSubMenuComponent
   ],
@@ -164,8 +154,4 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
 })
 export class AppModule { }
 
-declare var keycloak: any;
 
-export function onAppInit() {
-  
-}

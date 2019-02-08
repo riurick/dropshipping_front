@@ -20,7 +20,7 @@ body {
 
         &:focus {
             outline: 0 none;
-            box-shadow: 0 0 5px #1f89ce; }
+            box-shadow: 0 0 5px #1fce45; }
     
        &:hover {
                 border-color: #c0c0c0; }
@@ -110,7 +110,7 @@ body {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: .5em;
-        color: #1468AE;
+        color: rgb(13, 114, 55);
     }
 
     .ui-growl {   
@@ -392,23 +392,23 @@ body {
      .ui-tabview .ui-tabview-nav > li.ui-state-default a {
               color: $textColor; }
      .ui-tabview .ui-tabview-nav > li:not(.ui-state-active):not(.ui-state-disabled):hover {
-              background-color: #186ba0;
+              background-color: #18a05c;
             
             }
      .ui-tabview .ui-tabview-nav > li >a:not(.ui-state-active):not(.ui-state-disabled):hover {   
          color: #ffffff;  
       }
       .ui-tabview .ui-tabview-nav > li.ui-state-active {
-              background-color: #186ba0;
+              background-color: #18a05c;
               border-color: #ffffff;
               border-style: solid; }
     .ui-tabview .ui-tabview-nav > li.ui-state-active a {
                 color: #ffffff; }
      .ui-tabview .ui-tabview-nav > li.ui-state-active > .fa-close {
-                color: #186ba0; }
+                color: #18a05c; }
     .ui-tabview .ui-tabview-nav > li.ui-tabview-outline {
               outline: 0 none;
-              border-color: #186ba0; }
+              border-color: #18a05c; }
     .ui-tabview .ui-tabview-panel {
           padding: 0.625em 1em; }
     .ui-tabview .ui-tabview-panels {
@@ -426,7 +426,7 @@ body {
           -moz-border-radius-topright: 4px;
           -webkit-border-top-right-radius: 4px;
           border-top-right-radius: 4px;
-          border-bottom: 1px solid #186ba0; }
+          border-bottom: 1px solid #18a05c; }
     .ui-tabview.ui-tabview-top .ui-tabview-nav  li {
             border: 1px solid #c8c8c8;
             background-color: #ebedf0;
@@ -435,8 +435,8 @@ body {
             margin-right: 2px; }
 
     .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
-        background-color: #186ba0;
-         border: 1px solid #186ba0;
+        background-color: #18a05c;
+         border: 1px solid #18a05c;
      }
     .ui-tabview.ui-tabview-bottom > .ui-tabview-nav {
           padding: 0;
@@ -447,7 +447,7 @@ body {
           -moz-border-radius-bottomright: 4px;
           -webkit-border-bottom-right-radius: 4px;
           border-bottom-right-radius: 4px;
-          border-top: 1px solid #186ba0; }
+          border-top: 1px solid #18a05c; }
     .ui-tabview.ui-tabview-bottom > .ui-tabview-nav > li {
             border-style: solid;
             border-width: 0 0 2px 0; }

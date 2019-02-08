@@ -28,14 +28,15 @@ export class AppBreadcrumbComponent implements OnDestroy {
     }
 
     getUser() {
+
     }
 
     account(): void {
-        window.open('http://keycloak-hmlg.cloudapps.ocb.org.br/auth/realms/OCB/account', '_blank');
     }
 
 
     logout(): void {
+
     }
 
 }

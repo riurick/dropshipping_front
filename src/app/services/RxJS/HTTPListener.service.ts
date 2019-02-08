@@ -17,6 +17,8 @@ export class HTTPListener implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
 
+        // Adicionando token de autenticação ao request
+
         this.status.setHttpStatus(true);
         return next.handle(req).pipe(
             map(event => {

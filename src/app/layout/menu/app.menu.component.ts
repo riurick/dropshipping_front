@@ -30,14 +30,17 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
 
     updateMenu() {
         this.model = [
-            { label: 'Início', routerLink: ['/'] },
+            { label: 'Início', routerLink: ['/'], role: Role.CONSULTAR_JURIS },
             { label: 'Cadastros',
               role: Role.PARAMETRIZAR_JURIS,
               items: [
-                { label: 'Publicação', routerLink: ['/jurisprudencias'], role: Role.PARAMETRIZAR_JURIS }
+                { label: 'Cliente', routerLink: ['/novo-cliente'], role: Role.PARAMETRIZAR_JURIS },
+
               ]
-            }
+            },
+
         ];
+
     }
 }
 

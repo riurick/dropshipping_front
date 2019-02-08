@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  keycloakConfigFilePath: '/assets/keycloak/keycloak-dev.json'
 };
 
 /*

@@ -671,12 +671,12 @@ header .link-rapido ul > li {
     list-style: none;
     display: inline-block;
     margin-top: 0px;
-    color: #003a60;
+    color: #006018;
   }
   header .topo nav > ul > li > a {
     text-decoration: none;
     text-transform: uppercase;
-    color: #003a60;
+    color: #006018;
     display: block;
     padding: 42px 12px;
     font-weight: 600;
@@ -698,7 +698,7 @@ header .link-rapido ul > li {
   }
   header .topo nav > ul > li > a:hover {
     color: #FFFFFF;
-    background: #006aaf;
+    background: #0faf00;
   }
   header .topo nav > ul > li.search-button a {
     padding: 36px 15px;
@@ -706,7 +706,7 @@ header .link-rapido ul > li {
     top: 4px;
   }
   header .topo nav > ul > li.search-button a:hover {
-    color: #006aaf;
+    color: #0faf00;
     background: transparent;
   }
   header .topo nav > ul > li.active a {
@@ -723,11 +723,11 @@ header .link-rapido ul > li {
     min-width: 230px;
   }
   header .topo nav .dropdown .dropdown-menu .dropdown-item:hover {
-    background: #005b96;
+    background: #009625;
   }
   header .topo nav .dropdown:hover a {
     color: $topbarTextColor;
-    background: #006aaf;
+    background: #0faf00;
   }
   header .topo nav .dropdown:hover .dropdown-menu {
     display: block;
