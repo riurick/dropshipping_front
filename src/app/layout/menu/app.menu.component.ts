@@ -35,6 +35,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
               role: Role.PARAMETRIZAR_JURIS,
               items: [
                 { label: 'Cliente', routerLink: ['/novo-cliente'], role: Role.PARAMETRIZAR_JURIS },
+                { label: 'Vendedor', routerLink: ['/novo-vendedor'], role: Role.PARAMETRIZAR_JURIS },
 
               ]
             },
