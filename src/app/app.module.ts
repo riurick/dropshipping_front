@@ -61,6 +61,7 @@ import { ErroAcessoComponent } from './erro-acesso/erro-acesso.component';
 import { HideIfNacionalDirective } from './directives/hide-if-nacional.directive';
 import { MantemClienteComponent } from './clientes/mantem-cliente/mantem-cliente.component';
 import { MantemVendedorComponent } from './vendedor/mantem-vendedor/mantem-vendedor.component';
+import { MantemFornecedorComponent } from './fornecedor/mantem-fornecedor/mantem-fornecedor.component';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -81,7 +82,8 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     ErroAcessoComponent,
 
     MantemClienteComponent,
-    MantemVendedorComponent
+    MantemVendedorComponent,
+    MantemFornecedorComponent
   ],
   imports: [
     // Angular Modules

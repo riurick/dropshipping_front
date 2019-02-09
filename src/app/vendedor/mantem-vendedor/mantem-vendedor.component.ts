@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
 import { Vendedor } from 'src/app/entities/Vendedor';
 import { NgForm } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-mantem-vendedor',
@@ -22,6 +23,7 @@ export class MantemVendedorComponent implements OnInit {
     private utilService: UtilityService,
     private route: ActivatedRoute,
     private breadcrumbService: BreadcrumbService,
+    private messageService: MessageService,
   ) {
     this.vendedor = new Vendedor();
     this.confirmaSenha = null;
@@ -47,6 +49,10 @@ export class MantemVendedorComponent implements OnInit {
   salvar(): void {
 
     if (this.vendedorForm.invalid) {
+      return;
+    }
+    if (this.vendedor.senha !== this.confirmaSenha) {
+      this.messageService.add({severity: 'error', summary: '', detail: 'É necessário confirmar a senha.'});
       return;
     }
     this.vendedor.cpf = this.utilService.retirarFormatacao(this.vendedor.cpf);

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { IPage } from '../entities/IPage';
-import { SubTema } from '../entities/SubTema';
 import { IServiceResponse } from '../entities/IResponse';
 import { Modulo } from '../entities/Modulo';
 import { Repositorio } from '../entities/Repositorio';

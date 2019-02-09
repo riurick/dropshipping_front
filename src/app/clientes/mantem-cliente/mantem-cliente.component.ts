@@ -5,7 +5,7 @@ import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.servic
 import { Cliente } from 'src/app/entities/CLiente';
 import { NgForm } from '@angular/forms';
 import { Endereco } from 'src/app/entities/Endereco';
-import { SelectItem } from 'primeng/api';
+import { SelectItem, MessageService } from 'primeng/api';
 import { UtilityService } from 'src/app/services/utility/utility.service';
 
 @Component({
@@ -24,7 +24,8 @@ export class MantemClienteComponent implements OnInit {
     private clienteAPI: ApiClienteService,
     private utilService: UtilityService,
     private route: ActivatedRoute,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
+    private messageService: MessageService,
   ) {
     this.cliente = new Cliente();
     this.cliente.endereco = new Endereco();
@@ -63,6 +64,10 @@ export class MantemClienteComponent implements OnInit {
   salvar(): void {
 
     if (this.clienteForm.invalid) {
+      return;
+    }
+    if (this.cliente.senha !== this.confirmaSenha) {
+      this.messageService.add({severity: 'error', summary: '', detail: 'É necessário confirmar a senha.'});
       return;
     }
     this.cliente.cpf = this.utilService.retirarFormatacao(this.cliente.cpf);
