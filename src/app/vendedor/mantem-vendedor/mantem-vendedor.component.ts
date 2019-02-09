@@ -69,17 +69,6 @@ export class MantemVendedorComponent implements OnInit {
     }
   }
 
-  validade() {
-    const pass = this.vendedor.senha;
-    const repPass = this.confirmaSenha;
-    if (repPass !== pass) {
-      return {
-        notMatchSenha: true
-      };
-    }
-    return null;
-  }
-
   inicializar(): void {
     this.vendedor = new Vendedor();
   }
