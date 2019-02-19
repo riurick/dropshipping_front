@@ -5,7 +5,7 @@ import { ApiFornecedorService } from '../api-fornecedor.service';
 import { UtilityService } from 'src/app/services/utility/utility.service';
 import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
-import { MessageService } from 'primeng/api';
+import { MessageService, SelectItem } from 'primeng/api';
 import { Endereco } from 'src/app/entities/Endereco';
 
 @Component({
@@ -17,6 +17,7 @@ export class MantemFornecedorComponent implements OnInit {
   confirmaSenha: String;
   fornecedor: Fornecedor;
   notMatchSenha = false;
+  ufs: SelectItem[];
   @ViewChild('fornecedorForm') fornecedorForm: NgForm;
   constructor(
     private fornecedorApi: ApiFornecedorService,
@@ -45,6 +46,7 @@ export class MantemFornecedorComponent implements OnInit {
     } else {
       this.inicializar();
     }
+    this.ufs = this.utilService.inicializarUF();
   }
 
   salvar(): void {
@@ -58,6 +60,7 @@ export class MantemFornecedorComponent implements OnInit {
     }
     this.fornecedor.cnpj = this.utilService.retirarFormatacao(this.fornecedor.cnpj);
     this.fornecedor.telefone = this.utilService.retirarFormatacao(this.fornecedor.telefone);
+    this.fornecedor.endereco.cep = this.utilService.retirarFormatacao(this.fornecedor.endereco.cep);
     if (this.fornecedor.id) {
       this.fornecedorApi.alterar(this.fornecedor);
     } else {
