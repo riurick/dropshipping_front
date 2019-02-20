@@ -62,6 +62,7 @@ import { HideIfNacionalDirective } from './directives/hide-if-nacional.directive
 import { MantemClienteComponent } from './clientes/mantem-cliente/mantem-cliente.component';
 import { MantemVendedorComponent } from './vendedor/mantem-vendedor/mantem-vendedor.component';
 import { MantemFornecedorComponent } from './fornecedor/mantem-fornecedor/mantem-fornecedor.component';
+import { MantemProdutoComponent } from './produto/mantem-produto/mantem-produto.component';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -83,7 +84,8 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
 
     MantemClienteComponent,
     MantemVendedorComponent,
-    MantemFornecedorComponent
+    MantemFornecedorComponent,
+    MantemProdutoComponent
   ],
   imports: [
     // Angular Modules

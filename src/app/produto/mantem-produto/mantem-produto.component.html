@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="ui-fluid">
+      <p-growl [(value)]="msgs"></p-growl>
+      <p-card class="cad_cadastro ui-g-12" title="Produto">
+          <hr>
+          <form class="ui-g" (ngSubmit)="salvar()" #produtoForm="ngForm">
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="nome">Nome:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-5 ">
+                      <input id="nome"  required type="text" size="30" pInputText [(ngModel)]="produto.nome" name="nome" #nome="ngModel"  maxlength="50">
+                      <p-message [hidden]="nome.valid || nome.pristine" severity="error" text="Nome deve ser preenchido"></p-message>
+                  </div>
+              </div>
+
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="form-label" for="marca">Marca:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-5 ">
+                      <input id="marca"  type="text" size="30" pInputText [(ngModel)]="produto.marca" name="marca" #marca="ngModel"  maxlength="50">
+                  </div>
+              </div>
+
+              <div  class="ui-g-10 ui-fluid" >
+                <div class="ui-g-12 ui-md-3 ui-lg-2">
+                    <label  class="form-label" for="descricao">Descrição:</label>
+                </div>
+                <div class="ui-g-12 ui-md-9 ui-lg-8 ">
+                    <textarea id="descricao" rows="5" cols="30" pInputTextarea autoResize="autoResize" [(ngModel)]="produto.descricao"
+                      name="descricao" maxlength="255" #descricao="ngModel"></textarea>
+                </div>
+              </div>
+
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="required form-label" for="preco">Preço:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-5 ">
+                      <input id="preco"  required type="text" size="30" pInputText [(ngModel)]="produto.preco" name="preco" #preco="ngModel">
+                      
+                  </div>
+              </div>
+              <div  class="ui-g-10 ui-fluid" >
+                  <div class="ui-g-12 ui-md-3 ui-lg-2">
+                      <label  class="form-label" for="categoria">Categoria:</label>
+                  </div>
+                  <div class="ui-g-12 ui-md-9 ui-lg-4">
+                      <p-dropdown id="categoria" [options]="categorias" [(ngModel)]="produto.categoria" name="produto.categoria"
+                      optionLabel="descricao" filter="true" placeholder="Selecione uma Categoria"></p-dropdown>
+                  </div>
+              </div>
+
+              <div  class="ui-g-12 ui-fluid" >
+                  <p-fieldset legend="Imagens" [toggleable]="true">
+                     
+              
+                  </p-fieldset>
+              </div>
+              <div class="ui-fluid">
+                  <div class="ui-g-6 ui-md-6 ui-lg-10">
+                      <p-button label="Voltar" style="float: right;" [routerLink]="['/']" routerLinkActive="active"></p-button>
+                  </div>
+                  <div class="ui-g-6 ui-md-6 ui-lg-2">
+                      <p-button type="submit" [disabled]="produtoForm.form.invalid" label="Salvar" style="float: left;"></p-button>
+                  </div>
+              </div>
+          </form>
+      </p-card>
+  </div>
+</div>
