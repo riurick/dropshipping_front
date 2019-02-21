@@ -54,8 +54,14 @@
 
               <div  class="ui-g-12 ui-fluid" >
                   <p-fieldset legend="Imagens" [toggleable]="true">
-                     
-              
+                    <p-fileUpload name="files" url="/api-vendas/api/v1/imagem  " (onUpload)="onUpload($event)"
+                        multiple="multiple" accept="image/*" maxFileSize="1000000">
+                        <ng-template pTemplate="content">
+                            <ul *ngIf="files.length">
+                                <li *ngFor="let file of files">{{file.name}} - {{file.size}} bytes</li>
+                            </ul>
+                        </ng-template>
+                    </p-fileUpload>
                   </p-fieldset>
               </div>
               <div class="ui-fluid">

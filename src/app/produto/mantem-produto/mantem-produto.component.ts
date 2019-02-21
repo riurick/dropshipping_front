@@ -20,6 +20,7 @@ export class MantemProdutoComponent implements OnInit {
 
   produto: Produto;
   categorias: Categoria[];
+  files: any[] = [];
   @ViewChild('produtoForm') produtoForm: NgForm;
   constructor(
     private fornecedorApi: ApiFornecedorService,
@@ -55,6 +56,14 @@ export class MantemProdutoComponent implements OnInit {
         });
       });
     }
+  }
+
+  onUpload(event) {
+    for (const file of event.files) {
+        this.files.push(file);
+    }
+
+    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
 
   inicializar(): void {
