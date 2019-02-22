@@ -10,6 +10,10 @@ import { MessageService } from '../../../../node_modules/primeng/api';
 import { Produto } from '../../entities/Produto';
 import { Categoria } from '../../entities/Categoria';
 import { ApiCategoriaService } from '../../categoria/api-categoria.service';
+import { Imagem } from '../../entities/Imagem';
+import { ApiImagemService } from '../../imagem/api-imagem.service';
+import { HttpClient } from '../../../../node_modules/@angular/common/http';
+import { IServiceResponse } from '../../entities/IResponse';
 
 @Component({
   selector: 'app-mantem-produto',
@@ -21,6 +25,8 @@ export class MantemProdutoComponent implements OnInit {
   produto: Produto;
   categorias: Categoria[];
   files: any[] = [];
+  imagens: Imagem[];
+  uploadUrl = '/api-vendas/api/v1/imagem';
   @ViewChild('produtoForm') produtoForm: NgForm;
   constructor(
     private fornecedorApi: ApiFornecedorService,
@@ -29,7 +35,9 @@ export class MantemProdutoComponent implements OnInit {
     private breadcrumbService: BreadcrumbService,
     private messageService: MessageService,
     private produtoApi: ApiProdutoService,
-    private categoriaApi: ApiCategoriaService
+    private categoriaApi: ApiCategoriaService,
+    private imagemApi: ApiImagemService,
+    private http: HttpClient,
   ) {
     this.produto = new Produto();
     this.produto.fornecedor = new Fornecedor();
@@ -62,8 +70,9 @@ export class MantemProdutoComponent implements OnInit {
     for (const file of event.files) {
         this.files.push(file);
     }
-
-    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+    const response = JSON.parse(event.xhr.response);
+    this.imagens = response.data;
+    this.messageService.add({severity: 'info', summary: 'Imagens carregas!', detail: ''});
   }
 
   inicializar(): void {
@@ -85,9 +94,12 @@ export class MantemProdutoComponent implements OnInit {
     if (this.produto.id) {
       this.produtoApi.alterar(this.produto);
     } else {
-      this.produtoApi.salvar(this.produto).then(() => {
-        this.produtoForm.reset();
-        setTimeout(() => this.inicializar(), 0);
+      this.produtoApi.salvar(this.produto).then(response => {
+        this.produto = response.data;
+        for (const imagem of this.imagens) {
+          imagem.produto = this.produto;
+          this.imagemApi.alterar(imagem).then(() => {});
+        }
       });
     }
   }
