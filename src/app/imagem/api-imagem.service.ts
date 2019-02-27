@@ -7,6 +7,9 @@ import { Imagem } from '../entities/Imagem';
   providedIn: 'root'
 })
 export class ApiImagemService {
+  buscaImagemId(id: Number) {
+    return this.http.get(`/api-vendas/api/v1/imagem/arquivo/` + id, { responseType: 'blob' }).toPromise();
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -25,5 +28,9 @@ export class ApiImagemService {
   excluir(id) {
     return this.http.delete<IServiceResponse<any>>(`/api-vendas/api/v1/imagem/${id}`)
       .toPromise();
+  }
+  buscaPorProduto(id: Number) {
+    return this.http.get<IServiceResponse<Imagem[]>>(`/api-vendas/api/v1/imagem/buscarPorProduto/${id}`)
+    .toPromise();
   }
 }

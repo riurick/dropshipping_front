@@ -57,9 +57,26 @@
                     <p-fileUpload name="files" (onUpload)="onUpload($event)"
                         multiple="multiple" accept="image/*" url="{{uploadUrl}}" maxFileSize="1000000" >
                         <ng-template pTemplate="content">
-                            <ul *ngIf="files.length">
-                                <li *ngFor="let file of files">{{file.name}} - {{file.size}} bytes</li>
-                            </ul>
+                            <div *ngFor="let file of files" class="ui-fileupload-files ng-star-inserted">
+                                <div class="espacoMiniatura">
+                                    <img *ngIf="file" alt="Anexo" width="100" src="data:image/jpg;{{file}}" />
+                                </div>
+                                <div>
+                                    <a class='linkDownload' (click)="download(file)" download={{file.nome}}>
+                                        {{file.nome}}
+                                    </a>
+                                </div>
+                                <div>
+                                    <button (click)="download(file)" icon="pi pi-download" pbutton="" title="Fazer o download" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only">
+                                        <span aria-hidden="true" class="ui-button-icon-left ui-clickable pi pi-download"></span>
+                                        <span class="ui-button-text ui-clickable">Download</span>
+                                    </button>
+                                    <button (click)="onRemove(file)" [disabled]="disabilita" icon="pi pi-times" pbutton="" title="Excluir o arquivo" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only">
+                                        <span aria-hidden="true" class="ui-button-icon-left ui-clickable pi pi-times "></span>
+                                        <span class="ui-button-text ui-clickable">Remover</span>
+                                    </button>
+                                </div>
+                            </div>
                         </ng-template>
                     </p-fileUpload>
                   </p-fieldset>

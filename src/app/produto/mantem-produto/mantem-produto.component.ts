@@ -54,6 +54,7 @@ export class MantemProdutoComponent implements OnInit {
         this.produtoApi.get(params['id'])
           .then(response => {
             this.produto = response.data;
+            this.buscaProduto();
           });
       });
     } else {
@@ -65,7 +66,34 @@ export class MantemProdutoComponent implements OnInit {
       });
     }
   }
-
+  buscaProduto() {
+    this.imagemApi.buscaPorProduto(this.produto.id).then(response2 => {
+      this.imagens = response2.data;
+      this.files = this.imagens;
+      this.buscaArquivos();
+    });
+  }
+  buscaArquivos() {
+    for ( let i = 0; i < this.imagens.length; i++) {
+      this.imagemApi.buscaImagemId(this.imagens[i].id).then(response => {
+        this.files[i].arquivo = new Blob([response]);
+        const url = window.URL.createObjectURL(this.files[i].arquivo);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = this.files[i].nome;
+      });
+    }
+  }
+  download(file: Imagem) {
+    this.imagemApi.buscaImagemId(file.id).then(response => {
+        file.arquivo = new Blob([response]);
+        const url = window.URL.createObjectURL(file.arquivo);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = file.nome.toString();
+        link.dispatchEvent(new MouseEvent('click'));
+    });
+  }
   onUpload(event) {
     for (const file of event.files) {
         this.files.push(file);
@@ -87,7 +115,6 @@ export class MantemProdutoComponent implements OnInit {
   }
 
   salvar(): void {
-
     if (this.produtoForm.invalid) {
       return;
     }
