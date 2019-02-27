@@ -14,6 +14,7 @@ import { Imagem } from '../../entities/Imagem';
 import { ApiImagemService } from '../../imagem/api-imagem.service';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { IServiceResponse } from '../../entities/IResponse';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mantem-produto',
@@ -38,6 +39,7 @@ export class MantemProdutoComponent implements OnInit {
     private categoriaApi: ApiCategoriaService,
     private imagemApi: ApiImagemService,
     private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) {
     this.produto = new Produto();
     this.produto.fornecedor = new Fornecedor();
@@ -76,6 +78,15 @@ export class MantemProdutoComponent implements OnInit {
   buscaArquivos() {
     for ( let i = 0; i < this.imagens.length; i++) {
       this.imagemApi.buscaImagemId(this.imagens[i].id).then(response => {
+
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          this.files[i].url = reader.result;
+        }, false);
+        if (response) {
+          reader.readAsDataURL(response);
+        }
+
         this.files[i].arquivo = new Blob([response]);
         const url = window.URL.createObjectURL(this.files[i].arquivo);
         const link = document.createElement('a');
@@ -88,6 +99,7 @@ export class MantemProdutoComponent implements OnInit {
     this.imagemApi.buscaImagemId(file.id).then(response => {
         file.arquivo = new Blob([response]);
         const url = window.URL.createObjectURL(file.arquivo);
+        file.url = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file.arquivo)).toString();
         const link = document.createElement('a');
         link.href = url;
         link.download = file.nome.toString();

@@ -5,4 +5,5 @@ export class Imagem {
     nome: String;
     arquivo: Blob;
     produto: Produto;
+    url: string;
 }

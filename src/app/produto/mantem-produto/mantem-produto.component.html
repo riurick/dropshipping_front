@@ -59,7 +59,7 @@
                         <ng-template pTemplate="content">
                             <div *ngFor="let file of files" class="ui-fileupload-files ng-star-inserted">
                                 <div class="espacoMiniatura">
-                                    <img *ngIf="file" alt="Anexo" width="100" src="data:image/jpg;{{file}}" />
+                                    <img *ngIf="file" alt="Anexo" width="100" src="{{file.url}}" />
                                 </div>
                                 <div>
                                     <a class='linkDownload' (click)="download(file)" download={{file.nome}}>
