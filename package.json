@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build --prod=true",
+    "start": "ng serve --live-reload false --public-host",
     "build": "ng build --prod=true",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage true --source-map true --watch false",
