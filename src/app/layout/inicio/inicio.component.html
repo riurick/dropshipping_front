@@ -15,16 +15,13 @@
                         <p-tabView>
                             <p-tabPanel header="Jurispruência" >
                                 <div class="pesquisaRapida">
-                                        <p-dropdown class=" ui-fluid"  [options]="optionsDropdownRamo" [(ngModel)]="ramoSelecionado" optionLabel="descricao"
-                                   
-                                        filter="true" [showClear]="true" placeholder="Cooperativismo"></p-dropdown>
-
+                                       
                            
                                         <input class="ui-fluid" id="pesquisa-livre" [(ngModel)]="descricaoJuris" type="text" pInputText  placeholder="Buscar por jurisprudências"/>
                        
                                         <button class="botaoDesktop ui-fluid" id="pesquisar" type="button" pButton icon="pi pi-search" ></button>
                 
-                                        <button class="botaoMobile ui-fluid" label="Pesquisar" title="Pesquisar"  id="pesquisarMobile" type="button" pButton icon="pi pi-search" (click)="filtrar()"></button>
+                                       
                                     
                                 </div>
                                 <div>
@@ -45,9 +42,7 @@
                                             <input class="ui-fluid" id="pesquisa-livre" [(ngModel)]="descricaoPesquisaPronta" type="text" pInputText placeholder="Buscar por pesquisas prontas"  />
                            
                                             <button class="botaoDesktop ui-fluid" id="pesquisar" type="button" pButton icon="pi pi-search" ></button>
-                    
-                                            <button class="botaoMobile ui-fluid" label="Pesquisar" title="Pesquisar"  id="pesquisarMobile" type="button" pButton icon="pi pi-search" (click)="filtrar()"></button>
-                                        
+                                                            
                                     </div>
                                     <div>
                                         <div class="ui-g-12 ui-lg-8">

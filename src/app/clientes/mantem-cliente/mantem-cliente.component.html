@@ -1,6 +1,5 @@
 <div class="card">
   <div class="ui-fluid">
-      <p-growl [(value)]="msgs"></p-growl>
       <p-card class="cad_cadastro ui-g-12" title="Cliente">
           <hr>
           <form class="ui-g" (ngSubmit)="salvar()" #clienteForm="ngForm">
@@ -27,7 +26,7 @@
                       <label  class="required form-label" for="cpf">CPF:</label>
                   </div>
                   <div class="ui-g-12 ui-md-9 ui-lg-2">
-                      <p-inputMask [readonly]="visualizar" id="cpf" name="cpf" required size="14" [(ngModel)]="cliente.cpf"
+                      <p-inputMask id="cpf" name="cpf" required size="14" [(ngModel)]="cliente.cpf"
                           mask="999.999.999-99"></p-inputMask>
                   </div>
 
@@ -35,7 +34,7 @@
                       <label  class="form-label" for="telefone">Telefone:</label>
                   </div>
                   <div class="ui-g-12 ui-md-9 ui-lg-2">
-                      <p-inputMask [readonly]="visualizar" id="telefone" name="telefone" size="14" [(ngModel)]="cliente.telefone"
+                      <p-inputMask id="telefone" name="telefone" size="14" [(ngModel)]="cliente.telefone"
                           mask="(99)99999-9999"></p-inputMask>
                   </div>
               </div>
@@ -63,7 +62,7 @@
                             <label  class="required form-label" for="cep">CEP:</label>
                         </div>
                         <div class="ui-g-12 ui-md-9 ui-lg-2">
-                            <p-inputMask [readonly]="visualizar" id="cep" name="cep" required size="9" [(ngModel)]="cliente.endereco.cep"
+                            <p-inputMask id="cep" name="cep" required size="9" [(ngModel)]="cliente.endereco.cep"
                                 mask="99999-999"></p-inputMask>
                         </div>
                       </div>
@@ -115,7 +114,7 @@
                   <div class="ui-g-6 ui-md-6 ui-lg-10">
                       <p-button label="Voltar" style="float: right;" [routerLink]="['/']" routerLinkActive="active"></p-button>
                   </div>
-                  <div *ngIf="this.route.snapshot.url[0] && this.route.snapshot.url[0].path != 'visualizar'" class="ui-g-6 ui-md-6 ui-lg-2">
+                  <div class="ui-g-6 ui-md-6 ui-lg-2">
                       <p-button type="submit" [disabled]="clienteForm.form.invalid" label="Salvar" style="float: left;"></p-button>
                   </div>
               </div>

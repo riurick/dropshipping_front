@@ -55,7 +55,6 @@ import { CacheService } from './services/cache/cache.service';
 import { ExportarPlanilhaService } from './services/exportar-planilha/exportar-planilha.service';
 import { HTTPListener } from './services/RxJS/HTTPListener.service';
 import { HTTPStatus } from './services/RxJS/HTTPStatus.service';
-import { KeycloakService } from './services/keycloak-service/KeycloakService';
 import { UtilityService} from './services/utility/utility.service';
 import { ErroAcessoComponent } from './erro-acesso/erro-acesso.component';
 import { HideIfNacionalDirective } from './directives/hide-if-nacional.directive';
