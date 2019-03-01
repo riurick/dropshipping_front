@@ -4,14 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --prod=true",
+    "build": "ng build",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage true --source-map true --watch false",
     "test-no-watch": "ng test --watch false",
     "lint": "ng lint dropshipping-front",
     "lint-fix": "ng lint dropshipping-front --fix",
     "e2e": "ng e2e",
-    "postinstall": "ng build --output-path dist"
+    "postinstall": "ng build"
   },
   "engines": {
     "node": "8.9.0",
