@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng server",
+    "start": "node server.js",
     "build": "ng build --prod=true",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage true --source-map true --watch false",
@@ -11,8 +11,8 @@
     "lint": "ng lint dropshipping-front",
     "lint-fix": "ng lint dropshipping-front --fix",
     "e2e": "ng e2e",
-    "preinstall": "npm install -g http-server ",
-    "postinstall": "ng build --aot --prod=true"
+    "preinstall": "npm install",
+    "postinstall": "ng build --output-path dist"
   },
   "engines": {
     "node": "8.9.0",
