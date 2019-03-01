@@ -11,7 +11,6 @@
     "lint": "ng lint dropshipping-front",
     "lint-fix": "ng lint dropshipping-front --fix",
     "e2e": "ng e2e",
-    "preinstall": "npm install",
     "postinstall": "ng build --output-path dist"
   },
   "engines": {
