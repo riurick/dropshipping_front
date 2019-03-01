@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "http-server",
+    "start": "ng server",
     "build": "ng build --prod=true",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage true --source-map true --watch false",
@@ -11,9 +11,12 @@
     "lint": "ng lint dropshipping-front",
     "lint-fix": "ng lint dropshipping-front --fix",
     "e2e": "ng e2e",
-    "preinstall": "npm install -g http-server",
-    "postinstall": "ng build && mv dist/* ."
-
+    "preinstall": "npm install -g http-server ",
+    "postinstall": "ng build --aot --prod=true"
+  },
+  "engines": {
+    "node": "6.11.0",
+    "npm": "3.10.10"
   },
   "private": true,
   "dependencies": {
@@ -59,9 +62,7 @@
     "xlsx": "^0.13.3",
     "zone.js": "~0.8.26"
   },
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "pre-commit": [
     "lint"
   ]
