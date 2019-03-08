@@ -62,6 +62,8 @@ import { MantemClienteComponent } from './clientes/mantem-cliente/mantem-cliente
 import { MantemVendedorComponent } from './vendedor/mantem-vendedor/mantem-vendedor.component';
 import { MantemFornecedorComponent } from './fornecedor/mantem-fornecedor/mantem-fornecedor.component';
 import { MantemProdutoComponent } from './produto/mantem-produto/mantem-produto.component';
+import { LoginComponent } from './login/login/login.component';
+import { ListaProdutoComponent } from './produto/lista-produto/lista-produto/lista-produto.component';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -84,7 +86,9 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     MantemClienteComponent,
     MantemVendedorComponent,
     MantemFornecedorComponent,
-    MantemProdutoComponent
+    MantemProdutoComponent,
+    LoginComponent,
+    ListaProdutoComponent
   ],
   imports: [
     // Angular Modules

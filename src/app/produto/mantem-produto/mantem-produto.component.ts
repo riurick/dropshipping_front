@@ -15,6 +15,7 @@ import { ApiImagemService } from '../../imagem/api-imagem.service';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { IServiceResponse } from '../../entities/IResponse';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { AuthGuardService } from '../../services/auth-guard/auth-guard.service';
 
 @Component({
   selector: 'app-mantem-produto',
@@ -39,7 +40,8 @@ export class MantemProdutoComponent implements OnInit {
     private categoriaApi: ApiCategoriaService,
     private imagemApi: ApiImagemService,
     private http: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private authService: AuthGuardService,
   ) {
     this.produto = new Produto();
     this.produto.fornecedor = new Fornecedor();
@@ -112,7 +114,7 @@ export class MantemProdutoComponent implements OnInit {
     }
     const response = JSON.parse(event.xhr.response);
     this.imagens = response.data;
-    this.messageService.add({severity: 'info', summary: 'Imagens carregas!', detail: ''});
+    this.messageService.add({severity: 'info', summary: 'Imagens carregadas!', detail: 'Imagens carregadas!'});
   }
 
   inicializar(): void {
@@ -132,6 +134,10 @@ export class MantemProdutoComponent implements OnInit {
     }
     if (this.produto.id) {
       this.produtoApi.alterar(this.produto);
+      for (const imagem of this.imagens) {
+        imagem.produto = this.produto;
+        this.imagemApi.alterar(imagem).then(() => {});
+      }
     } else {
       this.produtoApi.salvar(this.produto).then(response => {
         this.produto = response.data;

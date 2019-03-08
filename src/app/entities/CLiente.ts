@@ -1,12 +1,11 @@
 import { Endereco } from './Endereco';
+import { Usuario } from './Usuario';
 
-export class Cliente {
+export class Cliente extends Usuario {
     id: Number;
     nome: String;
-    email: String;
     telefone: String;
     cpf: String;
-    senha: String;
     endereco: Endereco;
 
 }

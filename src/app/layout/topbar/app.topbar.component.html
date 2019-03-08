@@ -17,14 +17,24 @@
 
         <a href="#" class="menu-btn" (click)="app.onMenuButtonClick($event)">
                 <em class="pi pi-chevron-right"></em>
+        </a>
+        <div [hidden]="!authenticated()">
+            <a>
+                <button (click)="logout()" pButton type="button" label="Sair" iconPos="right" icon="pi pi-power-off"
+                    class="mobile-topbar-menu-btn"></button>
             </a>
-        <a>
-            <button (click)="logout()" pButton type="button" label="Sair" iconPos="right" icon="pi pi-power-off"
-                class="mobile-topbar-menu-btn"></button>
-        </a>
-        <a>
-            <button (click)="logout()" pButton type="button" label="Sair" iconPos="right" icon="pi pi-arrow-right" class="topbar-button"></button>
-        </a>
-        
+            <a>
+                <button (click)="logout()" pButton type="button" label="Sair" iconPos="right" icon="pi pi-arrow-right" class="topbar-button"></button>
+            </a>
+        </div>
+        <div [hidden]="authenticated()">
+            <a>
+                <button (click)="login()" pButton type="button" label="Login" iconPos="right" icon="pi pi-power-on"
+                    class="mobile-topbar-menu-btn"></button>
+            </a>
+            <a>
+                <button (click)="login()" pButton type="button" label="Login" iconPos="right" icon="pi pi-arrow-right" class="topbar-button"></button>
+            </a>
+        </div>
     </div>
 </header>
