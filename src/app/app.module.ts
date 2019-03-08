@@ -64,6 +64,10 @@ import { MantemFornecedorComponent } from './fornecedor/mantem-fornecedor/mantem
 import { MantemProdutoComponent } from './produto/mantem-produto/mantem-produto.component';
 import { LoginComponent } from './login/login/login.component';
 import { ListaProdutoComponent } from './produto/lista-produto/lista-produto/lista-produto.component';
+import { VendasComponent } from './vendas/vendas.component';
+import { ProdutosVendasComponent } from './vendas/produtos-vendas/produtos-vendas.component';
+import { PedidosComponent } from './vendas/pedidos/pedidos.component';
+import { CarrinhoComprasComponent } from './vendas/carrinho-compras/carrinho-compras.component';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -88,7 +92,11 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     MantemFornecedorComponent,
     MantemProdutoComponent,
     LoginComponent,
-    ListaProdutoComponent
+    ListaProdutoComponent,
+    VendasComponent,
+    ProdutosVendasComponent,
+    PedidosComponent,
+    CarrinhoComprasComponent
   ],
   imports: [
     // Angular Modules
