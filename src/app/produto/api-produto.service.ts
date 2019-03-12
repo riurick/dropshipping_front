@@ -35,4 +35,8 @@ export class ApiProdutoService {
     return this.http.get<IServiceResponse<IPage<Produto>>>(`/api-vendas/api/v1/produto/filtro`, options)
       .toPromise();
   }
+  listaPorFornecedor(idFornecedor: Number) {
+    return this.http.get<IServiceResponse<Produto[]>>(`/api-vendas/api/v1/produto/listaPorFornecedor/${idFornecedor}`)
+    .toPromise();
+  }
 }

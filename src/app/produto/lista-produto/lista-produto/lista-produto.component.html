@@ -1,25 +1,39 @@
 <div class="card">
   <div class="ui-g-12">
     <p-card title="Produtos">
-        <div class="ui cards">
+        <div>
+
+              <div class="ui-helper-clearfix">
+                <button type="button" pButton label="Novo Produto" title="Novo Produto" icon="pi pi-plus" [routerLink]="['/novo-produto/'+idFornecedor]" routerLinkActive="active"
+                  style="float:right"></button>
+              </div>
+        </div>
+        <div *ngIf="produtos" class="ui cards">
             <div class="card product" *ngFor="let produto of produtos" >
-              <div class="image">
-                <img [src]="produto.imagens[0]">
+              <div *ngIf="produto.imagens" class="image">
+                  <p-fileUpload name="produto.imagens" [disabled]="true"
+                        multiple="multiple" accept="image/*" url="{{uploadUrl}}" maxFileSize="1000000" >
+                        <ng-template pTemplate="content">
+                            <div  class="ui-fileupload-files ng-star-inserted">
+                                <div class="espacoMiniatura">
+                                    <img *ngIf="produto.imagens[0]" alt="Anexo" width="100" src="{{produto.imagens[0].url}}" />
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-fileUpload>
               </div>
               <div class="content">
-                <div class="header">{{produto.nome}}</div>
+                <h4 class="header">{{produto.nome}}</h4>
                 <div class="meta">
-                  <a>{{produto.preco}}</a>
+                  <a>{{produto.preco}} Reais</a>
                 </div>
                 <div class="description">
                   {{produto.descricao}}
                 </div>
               </div>
               <div class="extra content">
-                <div class="ui right floated primary button" (click)="onSelect(product.id)">
-                  Editar produto
-                  <i class="right chevron icon"></i>
-                </div>
+                <p-button   label="Editar" (onClick)="editarProduto([produto.id])" ></p-button>
+                
               </div>
             </div>
         </div>
