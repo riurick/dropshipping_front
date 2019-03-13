@@ -33,10 +33,7 @@ export class ListaProdutoComponent implements OnInit {
         for (const produto of this.produtos) {
           this.imagemApi.buscaPorProduto(produto.id).then( resProduto => {
             produto.imagens = resProduto.data;
-
-
               this.imagemApi.buscaImagemId(produto.imagens[0].id).then(response2 => {
-
                 const reader = new FileReader();
                 reader.addEventListener('load', () => {
                   produto.imagens[0].url = reader.result;
@@ -44,23 +41,18 @@ export class ListaProdutoComponent implements OnInit {
                 if (response2) {
                   reader.readAsDataURL(response2);
                 }
-
                 produto.imagens[0].arquivo = new Blob([response2]);
                 const url = window.URL.createObjectURL(produto.imagens[0].arquivo);
                 const link = document.createElement('a');
                 link.href = url;
                 link.download = produto.imagens[0].nome.toString();
               });
-
-
           });
         }
       });
     });
   }
-
   editarProduto(id) {
     this.router.navigateByUrl('editar-produto/' + id);
   }
-
 }

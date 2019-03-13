@@ -4,7 +4,7 @@ import { NgForm } from '../../../../node_modules/@angular/forms';
 import { ApiProdutoService } from '../api-produto.service';
 import { ApiFornecedorService } from '../../fornecedor/api-fornecedor.service';
 import { UtilityService } from '../../services/utility/utility.service';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ActivatedRoute, Router } from '../../../../node_modules/@angular/router';
 import { BreadcrumbService } from '../../services/breadcrumb/breadcrumb.service';
 import { MessageService } from '../../../../node_modules/primeng/api';
 import { Produto } from '../../entities/Produto';
@@ -28,12 +28,14 @@ export class MantemProdutoComponent implements OnInit {
   categorias: Categoria[];
   files: any[] = [];
   imagens: Imagem[];
+  idFornecedor: number;
   uploadUrl = '/api-vendas/api/v1/imagem';
   @ViewChild('produtoForm') produtoForm: NgForm;
   constructor(
     private fornecedorApi: ApiFornecedorService,
     private utilService: UtilityService,
     private route: ActivatedRoute,
+    private router: Router,
     private breadcrumbService: BreadcrumbService,
     private messageService: MessageService,
     private produtoApi: ApiProdutoService,
@@ -64,6 +66,7 @@ export class MantemProdutoComponent implements OnInit {
     } else {
       this.inicializar();
       this.route.params.subscribe(params => {
+        this.idFornecedor = params['idFornecedor'];
         this.fornecedorApi.get(params['idFornecedor']).then(response => {
           this.produto.fornecedor = response.data;
         });
@@ -136,17 +139,20 @@ export class MantemProdutoComponent implements OnInit {
       this.produtoApi.alterar(this.produto);
       for (const imagem of this.imagens) {
         imagem.produto = this.produto;
-        this.imagemApi.alterar(imagem).then(() => {});
+        this.imagemApi.alterar(imagem).then(() => {
+          this.router.navigateByUrl('lista-produto/' + this.idFornecedor);
+        });
       }
     } else {
       this.produtoApi.salvar(this.produto).then(response => {
         this.produto = response.data;
         for (const imagem of this.imagens) {
           imagem.produto = this.produto;
-          this.imagemApi.alterar(imagem).then(() => {});
+          this.imagemApi.alterar(imagem).then(() => {
+            this.router.navigateByUrl('lista-produto/' + this.idFornecedor);
+          });
         }
       });
     }
   }
-
 }
