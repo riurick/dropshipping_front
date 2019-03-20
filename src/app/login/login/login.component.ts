@@ -3,6 +3,7 @@ import { Fornecedor } from '../../entities/Fornecedor';
 import { AuthGuardService } from '../../services/auth-guard/auth-guard.service';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { Router } from '../../../../node_modules/@angular/router';
+import { ApiFornecedorService } from '../../fornecedor/api-fornecedor.service';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +16,19 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthGuardService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private apiFornecedor: ApiFornecedorService,
   ) { }
 
   login() {
     this.credentials.email = this.fornecedor.email.toString();
     this.credentials.senha = this.fornecedor.senha.toString();
     this.authService.authenticate(this.fornecedor, () => {
-        this.router.navigateByUrl('/novo-produto/1');
+        this.apiFornecedor.getByEmail(this.fornecedor.email).then(response => {
+          this.fornecedor = response.data;
+          this.router.navigateByUrl('/lsita-produto/' + this.fornecedor.id);
+        });
+
     });
     return false;
   }

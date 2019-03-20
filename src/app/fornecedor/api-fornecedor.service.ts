@@ -30,4 +30,8 @@ export class ApiFornecedorService {
     return this.http.delete<IServiceResponse<any>>(`/api-vendas/api/v1/fornecedor/${id}`)
       .toPromise();
   }
+  getByEmail(email: String) {
+    return this.http.get<IServiceResponse<Fornecedor>>(`/api-vendas/api/v1/fornecedor/getByEmail/${email}`)
+      .toPromise();
+  }
 }

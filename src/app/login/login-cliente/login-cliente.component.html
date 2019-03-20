@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="ui-fluid">
+      <p-card class="cad_cadastro ui-g-12" title="Login">
+          <hr>
+          <form class="ui-g" (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="form-group">
+              <label for="email">E-mail:</label> <input type="text"
+                class="form-control" id="email" name="email" [(ngModel)]="cliente.email"/>
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha:</label> <input type="password"
+                class="form-control" id="senha" name="senha" [(ngModel)]="cliente.senha"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
+      </p-card>
+  </div>
+</div>

@@ -8,6 +8,11 @@ import { IServiceResponse } from '../entities/IResponse';
 })
 export class ApiClienteService {
 
+  getByEmail(email: String) {
+    return this.http.get<IServiceResponse<Cliente>>(`/api-vendas/api/v1/clientes/getByEmail/${email}`)
+      .toPromise();
+  }
+
   constructor(private http: HttpClient) { }
 
 getCliente(id: Number) {

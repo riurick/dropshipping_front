@@ -68,6 +68,7 @@ import { VendasComponent } from './vendas/vendas.component';
 import { ProdutosVendasComponent } from './vendas/produtos-vendas/produtos-vendas.component';
 import { PedidosComponent } from './vendas/pedidos/pedidos.component';
 import { CarrinhoComprasComponent } from './vendas/carrinho-compras/carrinho-compras.component';
+import { LoginClienteComponent } from './login/login-cliente/login-cliente.component';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -96,7 +97,8 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     VendasComponent,
     ProdutosVendasComponent,
     PedidosComponent,
-    CarrinhoComprasComponent
+    CarrinhoComprasComponent,
+    LoginClienteComponent
   ],
   imports: [
     // Angular Modules
