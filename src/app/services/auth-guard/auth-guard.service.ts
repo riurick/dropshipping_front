@@ -28,6 +28,22 @@ export class AuthGuardService {
         return callback && callback();
     });
 
-}
+    }
+
+    authenticateCliente(credentials: Usuario, callback) {
+
+        const headers = new HttpHeaders(credentials ? {
+            authorization : 'Basic ' + btoa(credentials.email + ':' + credentials.senha)
+        } : {});
+        this.http.get(`/api-controle/api/v1/usuario/login/${credentials.email}`, {headers: headers}).subscribe(response => {
+            if (response['name']) {
+                this.authenticated = true;
+            } else {
+                this.authenticated = false;
+            }
+            return callback && callback();
+        });
+
+        }
 
 }

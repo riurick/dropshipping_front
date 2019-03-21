@@ -7,7 +7,7 @@ export class Produto {
     nome: String;
     descricao: String;
     marca: String;
-    preco: Number;
+    preco: number;
     categoria: Categoria;
     fornecedor: Fornecedor;
     imagens: Imagem[];

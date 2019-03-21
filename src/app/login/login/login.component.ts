@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.fornecedor, () => {
         this.apiFornecedor.getByEmail(this.fornecedor.email).then(response => {
           this.fornecedor = response.data;
-          this.router.navigateByUrl('/lsita-produto/' + this.fornecedor.id);
+          this.router.navigateByUrl('/lista-produto/' + this.fornecedor.id);
         });
 
     });

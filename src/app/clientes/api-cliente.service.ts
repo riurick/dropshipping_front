@@ -9,7 +9,7 @@ import { IServiceResponse } from '../entities/IResponse';
 export class ApiClienteService {
 
   getByEmail(email: String) {
-    return this.http.get<IServiceResponse<Cliente>>(`/api-vendas/api/v1/clientes/getByEmail/${email}`)
+    return this.http.get<IServiceResponse<Cliente>>(`/api-controle/api/v1/clientes/getByEmail/${email}`)
       .toPromise();
   }
 

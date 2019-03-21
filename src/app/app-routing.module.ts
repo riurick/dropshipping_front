@@ -9,6 +9,8 @@ import { MantemProdutoComponent } from './produto/mantem-produto/mantem-produto.
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { ListaProdutoComponent } from './produto/lista-produto/lista-produto/lista-produto.component';
+import { VendasComponent } from './vendas/vendas.component';
+import { LoginClienteComponent } from './login/login-cliente/login-cliente.component';
 /* tslint:enable: max-line-length */
 
 const appRoutes: Routes = [
@@ -24,6 +26,8 @@ const appRoutes: Routes = [
   { path: 'novo-produto/:idFornecedor', component: MantemProdutoComponent},
   { path: 'editar-produto/:id', component: MantemProdutoComponent},
   { path: 'lista-produto/:idFornecedor', component: ListaProdutoComponent},
+  { path: 'login-cliente', component: LoginClienteComponent},
+  { path: 'vendas/:idCliente', component: VendasComponent},
   { path: '**', redirectTo: 'inicio' }
 ];
 
