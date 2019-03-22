@@ -4,7 +4,9 @@ import { Subject } from '../../../node_modules/rxjs';
 import { ProdutoPedido } from '../entities/ProdutoPedido';
 import { ProdutoPedidos } from '../entities/ProdutoPedidos';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class VendasService {
   private produtoPedido: ProdutoPedido;
   produtosPedidos: ProdutoPedidos = new ProdutoPedidos();

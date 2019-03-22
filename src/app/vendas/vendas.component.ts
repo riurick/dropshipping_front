@@ -20,8 +20,9 @@ export class VendasComponent implements OnInit {
 
   @ViewChild('pedidosC')
   pedidosC: PedidosComponent;
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log('teste');
   }
 
   toggleCollapsed(): void {

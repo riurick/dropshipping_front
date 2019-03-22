@@ -26,6 +26,7 @@ export class ProdutosVendasComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.carregaProdutos();
   }
 
   carregaProdutos() {
@@ -78,5 +79,7 @@ export class ProdutosVendasComponent implements OnInit {
       }
     }
   }
+
+
 
 }
