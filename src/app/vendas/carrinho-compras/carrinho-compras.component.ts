@@ -39,14 +39,13 @@ export class CarrinhoComprasComponent implements OnInit, OnDestroy {
 
   carregaCarrinho() {
     this.sub = this.vendasService.ProdutoPedidoChanged.subscribe(() => {
-      const p = this.vendasService.produtoPedidoSelecionado;
-      if (p) {
+      /*if (p) {
         const prodPedido = new ProdutoPedido();
         prodPedido.produto = p.produto;
         prodPedido.quantidade = p.quantidade;
         this.produtoPedidos.produtoPedidos.push(prodPedido);
-      }
-      this.vendasService.produtosPedidos = this.produtoPedidos;
+      }*/
+      // this.vendasService.produtosPedidos = this.produtoPedidos;
       this.produtoPedidos = this.vendasService.produtosPedidos;
         this.calculaTotal();
     });

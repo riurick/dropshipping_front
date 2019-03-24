@@ -1,9 +1,9 @@
 <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-  <div class="card-header text-center">Carrinho</div>
+  <div class="card-header text-center"><h3>Carrinho</h3></div>
   <div class="card-body">
-      <h5 class="card-title">Total: ${{total}}</h5>
+      <h4 class="card-title">Total: R${{total}}</h4>
       <hr>
-      <h6 class="card-title">Items bought:</h6>
+      <h5 class="card-title">Itens do Carrinho:</h5>
 
       <ul>
           <li *ngFor="let p of produtoPedidos.produtoPedidos">
@@ -11,8 +11,8 @@
           </li>
       </ul>
 
-      <button class="btn btn-light btn-block" (click)="finaliza()"
-           [disabled]="produtoPedidos.produtoPedidos.length == 0">Checkout
-      </button>
+      <p-button class="btn btn-light btn-block" (onClick)="finaliza()"
+           [disabled]="produtoPedidos.produtoPedidos.length == 0">CONCLUIR COMPRA
+      </p-button>
   </div>
 </div>

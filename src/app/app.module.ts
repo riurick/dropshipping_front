@@ -37,6 +37,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import {TreeModule} from 'primeng/tree';
 import { AppRoutingModule } from './app-routing.module';
 import {MenubarModule} from 'primeng/menubar';
+import {SpinnerModule} from 'primeng/spinner';
 import {MenuItem} from 'primeng/api';
 
 // App Imports
@@ -141,6 +142,8 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     TreeModule,
     ChipsModule,
     MenubarModule,
+    SpinnerModule,
+
 
     // Outros imports
     LoadingModule,

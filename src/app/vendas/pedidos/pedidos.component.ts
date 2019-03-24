@@ -18,7 +18,7 @@ export class PedidosComponent implements OnInit {
   constructor(
     private vendasService: VendasService,
   ) {
-    this.produtoPedidos = this.vendasService.produtosPedidos;
+    this.produtoPedidos = new ProdutoPedidos(); // this.vendasService.produtosPedidos;
   }
 
   ngOnInit() {
