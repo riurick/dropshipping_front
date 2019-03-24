@@ -21,14 +21,14 @@
 </nav>
 
 <div >
-    <div class="ui-g-12 ui-md-9 ui-lg-9">
+    <div class="ui-g-12">
         <app-produtos-vendas #produtosC [hidden]="finalizado"></app-produtos-vendas>
     </div>
-    <div class="ui-g-12 ui-md-3 ui-lg-3">
+    <!--div class="ui-g-12 ui-md-3 ui-lg-3">
         <app-carrinho-compras (onfinalizado)=finishOrder($event) #carrinhoC 
           [hidden]="finalizado"></app-carrinho-compras>
     </div>
     <div class="ui-g-12 ">
         <app-pedidos #pedidosC [hidden]="!finalizado"></app-pedidos>
-    </div>
+    </div-->
 </div>

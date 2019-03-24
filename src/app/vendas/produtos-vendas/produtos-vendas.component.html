@@ -1,3 +1,4 @@
+<div class="ui-g-12 ui-md-9 ui-lg-9">
 <div class="row card-deck">
   <div *ngFor="let p of produtoPedidos">
         <div class="ui-g-12 ui-md-4 ui-lg-3">
@@ -20,12 +21,12 @@
                 <div class="card-body">
                     <h4 class="card-title">R${{p.produto.preco}}</h4>
                     <div >
-                        <p-spinner size="30" [(ngModel)]="p.quantidade" [min]="0" [max]="100"></p-spinner>
+                        <p-spinner [(ngModel)]="p.quantidade" [min]="0" [max]="100"></p-spinner>
                     </div>
                     <br/>
                     <br/>
                     <div >
-                      <p-button size="30" class="btn btn-primary" (onClick)="adicionar(p)"
+                      <p-button class="btn btn-primary" (onClick)="adicionar(p)"
                               [disabled]="p.quantidade <= 0">ADCIONAR AO CARRINHO
                       </p-button>
                     </div>
@@ -39,4 +40,40 @@
             </div>
         </div>
   </div>
+</div>
+</div>
+<div class="ui-g-12 ui-md-3 ui-lg-3" *ngIf="!finalizado">
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+    <div class="card-header text-center">
+        <h3>Carrinho</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Total: R${{total}}</h4>
+        <hr>
+        <h5 class="card-title">Itens do Carrinho:</h5>
+        <ul>
+            <li *ngFor="let p of carrinhoPedidos.produtoPedidos">
+                    {{ p.produto.nome }} - {{ p.quantidade}} pcs.
+            </li>
+        </ul>
+      
+        <p-button class="btn btn-light btn-block" (onClick)="finalizar()"
+            [disabled]="carrinhoPedidos.produtoPedidos.length == 0">CONCLUIR COMPRA
+        </p-button>
+    </div>
+</div>
+</div>
+<div class="ui-g-3" *ngIf="finalizado">
+        <h2 class="text-center">Pedido</h2>
+        <ul >
+            <li *ngFor="let c of carrinhoPedidos.produtoPedidos">
+                {{ c.produto.nome }} - R${{ c.produto.preco }} x {{ c.quantidade}} pcs.
+            </li>
+        </ul>
+        <h3 >Total amount: R${{ total }}</h3>
+         
+        <p-button class="btn btn-primary btn-block" (click)="pagar()" *ngIf="!pago">EFETUAR PAGAMENTO</p-button>
+        <div class="alert alert-success" role="alert" *ngIf="pago">
+            <strong>Parabéns! Pedido realizado com sucesso.</strong> 
+        </div>
 </div>

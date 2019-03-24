@@ -31,7 +31,7 @@ export class PedidosComponent implements OnInit {
 
   pagar() {
     this.pago = true;
-    this.vendasService.salvarPedido(this.produtoPedidos).subscribe();
+    // this.vendasService.salvarPedido(this.produtoPedidos).subscribe();
   }
 
   carregaTotal() {

@@ -3,6 +3,8 @@ import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { Subject } from '../../../node_modules/rxjs';
 import { ProdutoPedido } from '../entities/ProdutoPedido';
 import { ProdutoPedidos } from '../entities/ProdutoPedidos';
+import { Pedido } from '../entities/Pedido';
+import { IServiceResponse } from '../entities/IResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,10 @@ export class VendasService {
 
   constructor(private http: HttpClient) { }
 
-  salvarPedido(pedido: ProdutoPedidos) {
-    return this.http.post('Url', pedido);
-}
+  salvarPedido(pedido: Pedido) {
+    return this.http.post<IServiceResponse<Pedido>>('/api-controle/api/v1/pedidos', pedido).toPromise();
+  }
+  salvarProdutoPedido(produtoPedido: ProdutoPedido) {
+    return this.http.post<IServiceResponse<ProdutoPedido>>('/api-controle/api/v1/produtoPedido', produtoPedido).toPromise();
+  }
 }
