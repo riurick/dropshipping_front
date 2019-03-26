@@ -53,7 +53,7 @@
 
               <div  class="ui-g-12 ui-fluid" >
                   <p-fieldset legend="Imagens" [toggleable]="true">
-                    <p-fileUpload name="files" (onUpload)="onUpload($event)"
+                    <p-fileUpload name="files" (onUpload)="onUpload($event)" showUploadButton="false"
                         multiple="multiple" accept="image/*" url="{{uploadUrl}}" maxFileSize="1000000" >
                         <ng-template pTemplate="content">
                             <div *ngFor="let file of files" class="ui-fileupload-files ng-star-inserted">
@@ -85,7 +85,7 @@
                       <p-button label="Voltar" style="float: right;" [routerLink]="['/']" routerLinkActive="active"></p-button>
                   </div>
                   <div class="ui-g-6 ui-md-6 ui-lg-2">
-                      <p-button type="submit" [disabled]="produtoForm.form.invalid" label="Salvar" style="float: left;"></p-button>
+                      <p-button type="submit" [disabled]="produtoForm.form.invalid || !valido" label="Salvar" style="float: left;"></p-button>
                   </div>
               </div>
           </form>

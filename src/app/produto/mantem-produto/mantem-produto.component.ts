@@ -30,6 +30,7 @@ export class MantemProdutoComponent implements OnInit {
   imagens: Imagem[];
   idFornecedor: number;
   uploadUrl = '/api-vendas/api/v1/imagem';
+  valido = false;
   @ViewChild('produtoForm') produtoForm: NgForm;
   constructor(
     private fornecedorApi: ApiFornecedorService,
@@ -118,6 +119,7 @@ export class MantemProdutoComponent implements OnInit {
     const response = JSON.parse(event.xhr.response);
     this.imagens = response.data;
     this.messageService.add({severity: 'info', summary: 'Imagens carregadas!', detail: 'Imagens carregadas!'});
+    this.valido = true;
   }
 
   inicializar(): void {

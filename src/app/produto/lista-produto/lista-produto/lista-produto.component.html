@@ -11,7 +11,7 @@
             <div class="card product" *ngFor="let produto of produtos" >
               <div class="ui-g-12 ui-md-4 ui-lg-3">
                 <div *ngIf="produto.imagens" class="image">
-                    <p-fileUpload name="produto.imagens" [disabled]="true"
+                    <p-fileUpload name="produto.imagens" [disabled]="true" showUploadButton="false"
                           multiple="multiple" accept="image/*" url="{{uploadUrl}}" maxFileSize="1000000" >
                           <ng-template pTemplate="content">
                               <div  class="ui-fileupload-files ng-star-inserted">
@@ -28,7 +28,7 @@
                     <div>{{produto.preco}} Reais</div>
                   </div>
                   <div class="description">
-                    {{produto.descricao}}
+                    {{produto.descricao > 200 ? produto.descricao.substr(0, 200)+"..."}}
                   </div>
                 </div>
                 <div class="extra content">
