@@ -28,10 +28,12 @@ export class LoginClienteComponent implements OnInit {
     this.credentials.email = this.cliente.email.toString();
     this.credentials.senha = this.cliente.senha.toString();
     this.authService.authenticateCliente(this.cliente, () => {
+      this.authService.authenticate(this.cliente, () => {
       this.apiCliente.getByEmail(this.cliente.email).then(response => {
         this.cliente = response.data;
-        this.router.navigateByUrl('/vendas/' + this.cliente.id);
+          this.router.navigateByUrl('/vendas/' + this.cliente.id);
       });
+    });
 
   });
   return false;
