@@ -27,11 +27,11 @@ export class UtilityService {
     }
 
     public apiVendasUrl() {
-      return 'http://dropshipping-cadastro.herokuapp.com/api-vendas/';
+      return 'https://dropshipping-cadastro.herokuapp.com/api-vendas/';
     }
 
     public apiControleUrl() {
-      return 'http://dropshipping-pedidos.herokuapp.com/api-controle/';
+      return 'https://dropshipping-pedidos.herokuapp.com/api-controle/';
     }
 
     public inicializarUF() {

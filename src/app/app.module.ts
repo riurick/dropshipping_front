@@ -44,7 +44,6 @@ import {MenuItem} from 'primeng/api';
 import { AppComponent } from './app.component';
 import { DisableIfUnauthorizedDirective } from './directives/disable-if-unauthorized.directive';
 import { HideIfUnauthorizedDirective } from './directives/hide-if-unauthorized.directive';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 import { InicioComponent } from './layout/inicio/inicio.component';
 import { AppMenuComponent, AppSubMenuComponent } from './layout/menu/app.menu.component';
 import { AppRodapeComponent } from './layout/rodape/app.rodape.component';
@@ -83,7 +82,6 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     AppTopBarComponent,
     AppRodapeComponent,
     AppBreadcrumbComponent,
-    FileUploadComponent,
     DisableIfUnauthorizedDirective,
     HideIfUnauthorizedDirective,
     HideIfNacionalDirective,
