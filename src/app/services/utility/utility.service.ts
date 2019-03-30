@@ -26,6 +26,14 @@ export class UtilityService {
         num.substring(13, 14) + '.' + num.substring(14, 16) + '.' + num.substring(16, 20)) : '';
     }
 
+    public apiVendasUrl() {
+      return 'http://dropshipping-cadastro.herokuapp.com/api-vendas/';
+    }
+
+    public apiControleUrl() {
+      return 'http://dropshipping-pedidos.herokuapp.com/api-controle/';
+    }
+
     public inicializarUF() {
       const ufs = [
         {label: 'UF', value: null},
