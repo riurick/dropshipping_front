@@ -29,11 +29,11 @@ export class VendasService {
   ) { }
 
   salvarPedido(pedido: Pedido) {
-    return this.http.post<IServiceResponse<Pedido>>(this.utility.apiControleUrl() + 'api/v1/pedidos', pedido).toPromise();
+    return this.http.post<IServiceResponse<Pedido>>('/api-controle/api/v1/pedidos', pedido).toPromise();
   }
   salvarProdutoPedido(produtoPedido: ProdutoPedido) {
     return this.http.post<IServiceResponse<ProdutoPedido>>(
-      this.utility.apiControleUrl() + 'api/v1/produtoPedido', produtoPedido
+      '/api-controle/api/v1/produtoPedido', produtoPedido
     ).toPromise();
   }
 }

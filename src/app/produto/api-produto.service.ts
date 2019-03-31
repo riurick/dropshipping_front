@@ -16,31 +16,31 @@ export class ApiProdutoService {
   ) { }
 
   get(id: Number) {
-    return this.http.get<IServiceResponse<Produto>>(this.utility.apiVendasUrl() + `api/v1/produto/${id}`)
+    return this.http.get<IServiceResponse<Produto>>( `/api-vendas/api/v1/produto/${id}`)
       .toPromise();
   }
   salvar(produto: Produto) {
-    return this.http.post<IServiceResponse<Produto>>(this.utility.apiVendasUrl() + 'api/v1/produto', produto)
+    return this.http.post<IServiceResponse<Produto>>( '/api-vendas/api/v1/produto', produto)
       .toPromise();
   }
   lista() {
-    return this.http.get<IServiceResponse<Produto[]>>(this.utility.apiVendasUrl() + `api/v1/produto`)
+    return this.http.get<IServiceResponse<Produto[]>>( `/api-vendas/api/v1/produto`)
       .toPromise();
   }
   alterar(produto: Produto) {
-    return this.http.put<IServiceResponse<Produto>>(this.utility.apiVendasUrl() + `api/v1/produto/${produto.id}`, produto)
+    return this.http.put<IServiceResponse<Produto>>( `/api-vendas/api/v1/produto/${produto.id}`, produto)
       .toPromise();
   }
   excluir(id) {
-    return this.http.delete<IServiceResponse<any>>(this.utility.apiVendasUrl() + `api/v1/produto/${id}`)
+    return this.http.delete<IServiceResponse<any>>(`/api-vendas/api/v1/produto/${id}`)
       .toPromise();
   }
   filtra(options: { params: HttpParams }) {
-    return this.http.get<IServiceResponse<IPage<Produto>>>(this.utility.apiVendasUrl() + `api/v1/produto/filtro`, options)
+    return this.http.get<IServiceResponse<IPage<Produto>>>(`/api-vendas/api/v1/produto/filtro`, options)
       .toPromise();
   }
   listaPorFornecedor(idFornecedor: Number) {
-    return this.http.get<IServiceResponse<Produto[]>>(this.utility.apiVendasUrl() + `api/v1/produto/listaPorFornecedor/${idFornecedor}`)
+    return this.http.get<IServiceResponse<Produto[]>>(`/api-vendas/api/v1/produto/listaPorFornecedor/${idFornecedor}`)
     .toPromise();
   }
 }
