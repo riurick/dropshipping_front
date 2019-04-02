@@ -15,11 +15,11 @@ export class ApiFornecedorService {
   ) { }
 
   get(id: Number) {
-    return this.http.get<IServiceResponse<Fornecedor>>(`/api-vendas/api/v1/fornecedor/${id}`)
+    return this.http.get<IServiceResponse<Fornecedor>>(this.utility.apiVendasUrl() + `/api-vendas/api/v1/fornecedor/${id}`)
       .toPromise();
   }
   salvar(fornecedor: Fornecedor) {
-    return this.http.post<IServiceResponse<Fornecedor>>('/api-vendas/api/v1/fornecedor', fornecedor)
+    return this.http.post<IServiceResponse<Fornecedor>>(this.utility.apiVendasUrl() + '/api-vendas/api/v1/fornecedor', fornecedor)
       .toPromise();
   }
   lista() {
@@ -27,7 +27,8 @@ export class ApiFornecedorService {
       .toPromise();
   }
   alterar(fornecedor: Fornecedor) {
-    return this.http.put<IServiceResponse<Fornecedor>>( `/api-vendas/api/v1/fornecedor/${fornecedor.id}`, fornecedor)
+    return this.http.put<IServiceResponse<Fornecedor>>(this.utility.apiVendasUrl() +
+    `/api-vendas/api/v1/fornecedor/${fornecedor.id}`, fornecedor)
       .toPromise();
   }
   excluir(id) {

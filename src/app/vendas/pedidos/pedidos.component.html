@@ -1,6 +1,6 @@
 <h2 class="text-center">Pedido</h2>
-<ul *ngIf="produtosPedidos">
-    <li *ngFor="let p of produtosPedidos.produtosPedidos">
+<ul *ngIf="produtoPedidos">
+    <li *ngFor="let p of produtoPedidos.produtosPedidos">
         {{ p.produto.nome }} - ${{ p.produto.preco }} x {{ p.quantidade}} pcs.
     </li>
 </ul>

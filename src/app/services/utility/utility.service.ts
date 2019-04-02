@@ -59,5 +59,11 @@ export class UtilityService {
     ];
     return ufs;
     }
+    public apiVendasUrl() {
+      return 'https://dropshipping-cadastro.herokuapp.com';
+    }
 
+    public apiControleUrl() {
+      return 'http://dropshipping-pedidos.herokuapp.com';
+    }
 }
