@@ -20,8 +20,9 @@ export class AuthGuardService {
     const headers = new HttpHeaders(credentials ? {
         authorization : 'Basic ' + btoa(credentials.email + ':' + credentials.senha)
     } : {});
-    this.http.get(`/api-vendas/api/v1/usuario/login/${credentials.email}`, {headers: headers}).subscribe(response => {
-        if (response['name']) {
+    this.http.get(this.utility.apiControleUrl() + `/api-controle/api/v1/usuario/login/${credentials.email}`,
+     {headers: headers}).subscribe(response => {
+        if (response['data']) {
             this.authenticated = true;
         } else {
             this.authenticated = false;
@@ -36,11 +37,11 @@ export class AuthGuardService {
         const headers = new HttpHeaders(credentials ? {
             authorization : 'Basic ' + btoa(credentials.email + ':' + credentials.senha)
         } : {});
-        this.http.get(
-            `/api-controle/api/v1/usuario/login/${credentials.email}`,
+        this.http.get(this.utility.apiVendasUrl() +
+            `/api-vendas/api/v1/usuario/login/${credentials.email}`,
             {headers: headers}
         ).subscribe(response => {
-            if (response['name']) {
+            if (response['email']) {
                 this.authenticated = true;
             } else {
                 this.authenticated = false;

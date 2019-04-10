@@ -38,10 +38,9 @@ import {TreeModule} from 'primeng/tree';
 import { AppRoutingModule } from './app-routing.module';
 import {MenubarModule} from 'primeng/menubar';
 import {SpinnerModule} from 'primeng/spinner';
-import {MenuItem} from 'primeng/api';
 
 // App Imports
-import { AppComponent } from './app.component';
+import { AppComponent, XhrInterceptor } from './app.component';
 import { DisableIfUnauthorizedDirective } from './directives/disable-if-unauthorized.directive';
 import { HideIfUnauthorizedDirective } from './directives/hide-if-unauthorized.directive';
 import { InicioComponent } from './layout/inicio/inicio.component';
@@ -52,7 +51,6 @@ import { AppTopBarComponent } from './layout/topbar/app.topbar.component';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { BreadcrumbService } from './services/breadcrumb/breadcrumb.service';
 import { CacheService } from './services/cache/cache.service';
-import { ExportarPlanilhaService } from './services/exportar-planilha/exportar-planilha.service';
 import { HTTPListener } from './services/RxJS/HTTPListener.service';
 import { HTTPStatus } from './services/RxJS/HTTPStatus.service';
 import { UtilityService} from './services/utility/utility.service';
@@ -69,6 +67,10 @@ import { ProdutosVendasComponent } from './vendas/produtos-vendas/produtos-venda
 import { PedidosComponent } from './vendas/pedidos/pedidos.component';
 import { CarrinhoComprasComponent } from './vendas/carrinho-compras/carrinho-compras.component';
 import { LoginClienteComponent } from './login/login-cliente/login-cliente.component';
+import { CustExtBrowserXhr } from './services/utility/CustExtBrowserXhr';
+import { ExtBrowser } from './services/utility/ExtBrowser';
+import { BrowserXhr, HttpModule } from '@angular/http';
+import { LocationStrategy, HashLocationStrategy } from '../../node_modules/@angular/common';
 /* tslint:enable: max-line-length */
 
 const RxJS_Services = [HTTPListener, HTTPStatus];
@@ -107,6 +109,7 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     FormsModule,
     HttpClientModule,
     RouterModule,
+    HttpModule,
 
     // PrimeNG Modules
     ButtonModule,
@@ -151,20 +154,25 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
   ],
   providers: [
     ...RxJS_Services,
-
+    {
+      provide: BrowserXhr,
+      useClass: ExtBrowser
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HTTPListener,
+      useClass: XhrInterceptor,
       multi: true
     },
     ConfirmationService,
     MessageService,
-    ExportarPlanilhaService,
     BreadcrumbService,
     CacheService,
     AuthGuardService,
     UtilityService,
-
     AppMenuComponent,
     AppSubMenuComponent
   ],

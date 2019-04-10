@@ -13,28 +13,28 @@ export class ApiImagemService {
     private utility: UtilityService,
   ) { }
   buscaImagemId(id: Number) {
-    return this.http.get( `/api-vendas/api/v1/imagem/arquivo/` + id, { responseType: 'blob' }).toPromise();
+    return this.http.get( this.utility.apiVendasUrl() + `/api-vendas/api/v1/imagem/arquivo/` + id, { responseType: 'blob' }).toPromise();
   }
 
 
   get(id: Number) {
-    return this.http.get<IServiceResponse<Imagem>>( `/api-vendas/api/v1/imagem/${id}`)
+    return this.http.get<IServiceResponse<Imagem>>( this.utility.apiVendasUrl() + `/api-vendas/api/v1/imagem/${id}`)
       .toPromise();
   }
   lista() {
-    return this.http.get<IServiceResponse<Imagem[]>>( `/api-vendas/api/v1/imagem`)
+    return this.http.get<IServiceResponse<Imagem[]>>( this.utility.apiVendasUrl() + `/api-vendas/api/v1/imagem`)
       .toPromise();
   }
   alterar(imagem: Imagem) {
-    return this.http.put<IServiceResponse<Imagem>>(`/api-vendas/api/v1/imagem/${imagem.id}`, imagem)
+    return this.http.put<IServiceResponse<Imagem>>(this.utility.apiVendasUrl() + `/api-vendas/api/v1/imagem/${imagem.id}`, imagem)
       .toPromise();
   }
   excluir(id) {
-    return this.http.delete<IServiceResponse<any>>( `/api-vendas/api/v1/imagem/${id}`)
+    return this.http.delete<IServiceResponse<any>>( this.utility.apiVendasUrl() + `/api-vendas/api/v1/imagem/${id}`)
       .toPromise();
   }
   buscaPorProduto(id: Number) {
-    return this.http.get<IServiceResponse<Imagem[]>>( `/api-vendas/api/v1/imagem/buscarPorProduto/${id}`)
+    return this.http.get<IServiceResponse<Imagem[]>>( this.utility.apiVendasUrl() + `/api-vendas/api/v1/imagem/buscarPorProduto/${id}`)
     .toPromise();
   }
 }

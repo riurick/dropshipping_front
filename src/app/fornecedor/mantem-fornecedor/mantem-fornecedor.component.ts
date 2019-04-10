@@ -40,7 +40,7 @@ export class MantemFornecedorComponent implements OnInit {
       this.route.params.subscribe(params => {
         this.fornecedorApi.get(params['id'])
           .then(response => {
-            this.fornecedor = response.data;
+            // this.fornecedor = response.data;
           });
       });
     } else {

@@ -27,4 +27,10 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
       this.temPermissao = true;
   }
+  comprar() {
+    this.router.navigateByUrl('/login-cliente');
+  }
+  vender() {
+    this.router.navigateByUrl('/login-fornecedor');
+  }
 }

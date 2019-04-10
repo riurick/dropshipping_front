@@ -29,7 +29,7 @@ export class MantemProdutoComponent implements OnInit {
   files: any[] = [];
   imagens: Imagem[];
   idFornecedor: number;
-  uploadUrl = '/api-vendas/api/v1/imagem';
+  uploadUrl = this.utilService.apiVendasUrl() + '/api-vendas/api/v1/imagem';
   valido = false;
   @ViewChild('produtoForm') produtoForm: NgForm;
   constructor(
@@ -68,8 +68,9 @@ export class MantemProdutoComponent implements OnInit {
       this.inicializar();
       this.route.params.subscribe(params => {
         this.idFornecedor = params['idFornecedor'];
+        this.produto.fornecedor.id = this.idFornecedor;
         this.fornecedorApi.get(params['idFornecedor']).then(response => {
-          this.produto.fornecedor = response.data;
+          // this.produto.fornecedor = response.data;
         });
       });
     }
@@ -125,6 +126,8 @@ export class MantemProdutoComponent implements OnInit {
   inicializar(): void {
     this.produto = new Produto();
     this.produto.categoria = new Categoria();
+    this.produto.fornecedor = new Fornecedor();
+
   }
 
   inicializarCategorias() {
@@ -137,6 +140,7 @@ export class MantemProdutoComponent implements OnInit {
     if (this.produtoForm.invalid) {
       return;
     }
+
     if (this.produto.id) {
       this.produtoApi.alterar(this.produto);
       for (const imagem of this.imagens) {

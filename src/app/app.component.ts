@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { HTTPStatus } from './services/RxJS/HTTPStatus.service';
+import { expressionType } from '../../node_modules/@angular/compiler/src/output/output_ast';
+import { HttpInterceptor, HttpRequest, HttpHandler } from '../../node_modules/@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -52,5 +54,16 @@ export class AppComponent implements OnInit {
 
   onTopbarMenuClick(event: Event) {
     this.topbarMenuClick = true;
+  }
+}
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor {
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    });
+    return next.handle(xhr);
   }
 }

@@ -5,3 +5,15 @@
 img {
     margin-right: 0px !important;
 }
+
+.btn-work {
+    width: 400px;
+    height: 100px;
+    margin: 0 auto;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.divCenter {
+    text-align: center;
+}

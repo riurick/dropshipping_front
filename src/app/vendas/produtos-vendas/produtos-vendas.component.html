@@ -73,7 +73,7 @@
         <h3 >Total amount: R${{ total }}</h3>
          
         <p-button class="btn btn-primary btn-block" (click)="pagar()" *ngIf="!pago">EFETUAR PAGAMENTO</p-button>
-        <div class="alert alert-success" role="alert" *ngIf="pago">
+        <div class="alert alert-success" role="alert" *ngIf="finalizado">
             <strong>Parabéns! Pedido realizado com sucesso.</strong> 
         </div>
 </div>

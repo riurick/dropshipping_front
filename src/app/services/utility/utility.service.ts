@@ -64,6 +64,6 @@ export class UtilityService {
     }
 
     public apiControleUrl() {
-      return 'http://dropshipping-pedidos.herokuapp.com';
+      return 'https://dropshipping-pedidos.herokuapp.com';
     }
 }

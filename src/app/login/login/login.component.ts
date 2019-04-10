@@ -24,11 +24,13 @@ export class LoginComponent implements OnInit {
     this.credentials.email = this.fornecedor.email.toString();
     this.credentials.senha = this.fornecedor.senha.toString();
     this.authService.authenticate(this.fornecedor, () => {
+      this.apiFornecedor.getToken().then(response1 => {
+        const token = response1['token'];
         this.apiFornecedor.getByEmail(this.fornecedor.email).then(response => {
           this.fornecedor = response.data;
           this.router.navigateByUrl('/lista-produto/' + this.fornecedor.id);
         });
-
+      });
     });
     return false;
   }
